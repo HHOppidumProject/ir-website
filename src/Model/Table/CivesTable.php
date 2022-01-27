@@ -2,14 +2,14 @@
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
-use Cake\ORM\Table;
+use CakeDC\Users\Model\Table\UsersTable;
 
-class ArticlesTable extends Table
+class CivesTable extends UsersTable
 {
     public function initialize(array $config): void
     {
         $this->setTable('CIVES');
         $this->setPrimaryKey('CIVESID');
-        $this->addBehavior('Timestamp');
+        $this->hasOne('CIVESPRIV');
     }
 }

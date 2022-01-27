@@ -70,4 +70,12 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function faq(){
+        $this->viewBuilder()->setLayout('default');
+    }
+
+    public function donate(){
+        $this->viewBuilder()->setLayout('default');
+    }
 }
