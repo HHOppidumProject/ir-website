@@ -1,4 +1,4 @@
-<? $this->assign('title', 'Album Civium'); ?>
+<?php $this->assign('title', 'Album Civium'); ?>
 
 
 <section id="highlights" class="wrapper style3">

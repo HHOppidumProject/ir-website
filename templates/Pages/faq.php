@@ -1,4 +1,4 @@
-<? $this->assign('title', 'FAQ'); ?>
+<?php $this->assign('title', 'FAQ'); ?>
 
 <section id="highlights" class="wrapper style3">
     <div class="title">Frequently Asked Questions</div>
