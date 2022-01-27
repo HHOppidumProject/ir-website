@@ -1,0 +1,257 @@
+ @font-face {
+     font-family: Trajan;
+     src        : url(/fonts/TrajanProRegular.ttf);
+ }
+
+ :root {
+     --brand-color     : #66023c;
+     --brand-color2    : #d19b2f;
+     --brand-color3    : #960018;
+     --brand-color4    : #555;
+     --background-color: #fffcf0;
+     font-family       : Trajan !important;
+     background-color  : var(--background-color) !important;
+     background        : var(--background-color) !important;
+ }
+
+ body {
+     background : var(--background-color) !important;
+     font-family: Trajan !important;
+ }
+
+ table {
+     background: inherit !important;
+ }
+
+ .btn-primary {
+     background-color: var(--brand-color);
+     border-color    : var(--brand-color);
+ }
+
+ .btn-primary:hover {
+     background-color: var(--brand-color4);
+     border-color    : var(--brand-color2);
+ }
+
+ a.button.is-primary {
+     background-color: var(--brand-color);
+     border-color    : var(--brand-color);
+ }
+
+ a.button.is-primary:hover {
+     background-color: var(--brand-color4);
+     border-color    : var(--brand-color2);
+ }
+
+ #our-sections {
+     background-color: var(--brand-color);
+     color           : white;
+ }
+
+ #our-sections h4 {
+     color: white;
+ }
+
+ #our-sections a {
+     background-color: var(--brand-color2);
+ }
+
+ #our-sections a:hover {
+     background-color: var(--brand-color4);
+ }
+
+ #gods-list li {
+     padding: 0.5rem;
+ }
+
+ .card {
+     background-color: var(--background-color);
+ }
+
+ .split {
+     height     : 100%;
+     width      : 50%;
+     position   : fixed;
+     z-index    : 1;
+     top        : 0;
+     overflow-x : hidden;
+     padding-top: 20px;
+ }
+
+ .split.left {
+     left: 0;
+ }
+
+ .split.right {
+     right: 0;
+ }
+
+ .column.scroll {
+     overflow        : scroll;
+     background-color: var(--brand-color3);
+     padding         : 1rem;
+     overflow-x      : hidden;
+     /* Hide horizontal scrollbar */
+
+ }
+
+ .column.scroll div {
+     background-color: #fffcf0;
+ }
+
+ .wrapper.style-1 {
+     background: var(--brand-color3);
+     margin    : 0;
+ }
+
+ .wrapper.style-1 .title {
+     background : inherit;
+     font-size  : 1.1em;
+     font-weight: 900;
+ }
+
+ .wrapper#header {
+     margin: 0;
+ }
+
+
+ .wrapper.style2 {
+     background: var(--background-color);
+     margin    : 0;
+ }
+
+ .wrapper.style2 .title {
+     background: inherit;
+     color     : #484d55;
+ }
+
+ .wrapper.style3 {
+     background: var(--background-color);
+     margin    : 0;
+ }
+
+ .wrapper.style3 .title {
+     background: inherit;
+     color     : #555;
+ }
+
+ .image.featured {
+     margin       : auto;
+     margin-bottom: 1em;
+     display      : block;
+ }
+
+ /* width */
+ ::-webkit-scrollbar {
+     width: 15px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: #f1f1f1;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: var(--brand-color3);
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+     background: var(--brand-color);
+ }
+
+ #footer.wrapper .container .row .col-6.col-12-medium .feature-list.small .icon {
+     text-decoration: initial;
+     align-items    : initial;
+     display        : initial;
+     justify-content: initial;
+     height         : initial;
+     width          : initial;
+ }
+
+ @media screen and (max-width: 736px) {
+
+     .col,
+     .col-1,
+     .col-10,
+     .col-11,
+     .col-12,
+     .col-2,
+     .col-3,
+     .col-4,
+     .col-5,
+     .col-6,
+     .col-7,
+     .col-8,
+     .col-9,
+     .col-auto,
+     .col-lg,
+     .col-lg-1,
+     .col-lg-10,
+     .col-lg-11,
+     .col-lg-12,
+     .col-lg-2,
+     .col-lg-3,
+     .col-lg-4,
+     .col-lg-5,
+     .col-lg-6,
+     .col-lg-7,
+     .col-lg-8,
+     .col-lg-9,
+     .col-lg-auto,
+     .col-md,
+     .col-md-1,
+     .col-md-10,
+     .col-md-11,
+     .col-md-12,
+     .col-md-2,
+     .col-md-3,
+     .col-md-4,
+     .col-md-5,
+     .col-md-6,
+     .col-md-7,
+     .col-md-8,
+     .col-md-9,
+     .col-md-auto,
+     .col-sm,
+     .col-sm-1,
+     .col-sm-10,
+     .col-sm-11,
+     .col-sm-12,
+     .col-sm-2,
+     .col-sm-3,
+     .col-sm-4,
+     .col-sm-5,
+     .col-sm-6,
+     .col-sm-7,
+     .col-sm-8,
+     .col-sm-9,
+     .col-sm-auto,
+     .col-xl,
+     .col-xl-1,
+     .col-xl-10,
+     .col-xl-11,
+     .col-xl-12,
+     .col-xl-2,
+     .col-xl-3,
+     .col-xl-4,
+     .col-xl-5,
+     .col-xl-6,
+     .col-xl-7,
+     .col-xl-8,
+     .col-xl-9,
+     .col-xl-auto {
+         padding-right: calc(35px);
+         padding-left : calc(35px);
+     }
+
+     #footer.wrapper .row>.col-6 {
+         flex       : initial;
+         max-width  : initial;
+         display    : flex;
+         flex-wrap  : wrap;
+         box-sizing : border-box;
+         align-items: stretch;
+     }
+ }
