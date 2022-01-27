@@ -1,3 +1,5 @@
+<? $this->assign('title', 'FAQ'); ?>
+
 <section id="highlights" class="wrapper style3">
     <div class="title">Frequently Asked Questions</div>
     <div class="has-text-centered">

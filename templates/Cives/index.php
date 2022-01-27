@@ -1,3 +1,5 @@
+<? $this->assign('title', 'Album Civium'); ?>
+
 
 <section id="highlights" class="wrapper style3">
     <h1 class="title"><?= 'Cives' ?></h1>

@@ -1,3 +1,5 @@
+<? $this->assign('title', 'Donate'); ?>
+
 <section id="highlights" class="wrapper style3 has-text-centered">
     <h2 class="title is-2">Support Our Mission</h2>
     <h4 class="subtitle is-4">Help Power the Community Movement</h4>
