@@ -8,7 +8,7 @@ class PraenominaTable extends Table
 {
     public function initialize(array $config): void
     {
-        $this->setTable('PRAENOMINA');
+        $this->setTable('Praenomina');
         $this->setPrimaryKey('PRAENOMENID');
         $this->belongsTo('CIVES');
     }

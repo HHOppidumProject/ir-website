@@ -110,6 +110,16 @@
      font-weight: 900;
  }
 
+ input[type="date"] {
+     line-height: 1em;
+     width      : 100%;
+ }
+
+ input[type="tel"] {
+     line-height: 1em;
+     width      : 100%;
+ }
+
  .wrapper#header {
      margin: 0;
  }

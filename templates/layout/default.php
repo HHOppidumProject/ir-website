@@ -17,6 +17,7 @@
     <link rel="shortcut icon" type="image/vnd.microsoft/icon" href="favicon.ico" />
     <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'bootstrap.min.css', 'style.css']) ?>
     <?= $this->Html->script(['jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
+    <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
 
 </head>
 
@@ -26,50 +27,57 @@
 
         <!-- Logo -->
         <div id="logo">
-            <h1><?= $this->html->link('Imperivm Romanvm', ['controller' => 'Pages', 'action' => 'display']) ?></h1>
+            <h1><?= $this->Html->link('Imperivm Romanvm', ['controller' => 'Pages', 'action' => 'display']) ?></h1>
         </div>
 
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><?= $this->html->link('Home', ['controller' => 'Pages', 'action' => 'display']) ?></li>
-                <li><?= $this->html->link('Forum Romanum') ?></li>
-                <li class="current"><?= $this->html->link('Donate', ['controller' => 'Pages', 'action' => 'donate']) ?></li>
+                <li><?= $this->Html->link('Home', ['controller' => 'Pages', 'action' => 'display']) ?></li>
+                <li><?= $this->Html->link('Forum Romanum', 'https://forum.imperivm-romanvm.com/') ?></li>
+                <li><?= $this->Html->link('Wiki', 'https://wiki.imperivm-romanvm.com/') ?></li>
+                <li class="current"><?= $this->Html->link('Donate', ['controller' => 'Pages', 'action' => 'donate']) ?></li>
                 <li>
-                    <?= $this->html->link('Religion') ?>
+                    <?= $this->Html->link('Religion', ['controller' => 'religion']) ?>
                     <ul>
                         <li>
-                            <?= $this->html->link('Dii Consentes') ?>
+                            <?= $this->Html->link('Dii Consentes', ['controller' => 'religion', 'action' => 'diiConsentes']) ?>
                             <ul>
-                                <?= $this->html->link('Jupiter')    ?>
-                                <?= $this->html->link('Juno')       ?>
-                                <?= $this->html->link('Neptune')    ?>
-                                <?= $this->html->link('Minerva')    ?>
-                                <?= $this->html->link('Mars')       ?>
-                                <?= $this->html->link('Venus')      ?>
-                                <?= $this->html->link('Apollo')     ?>
-                                <?= $this->html->link('Diana')      ?>
-                                <?= $this->html->link('Vulcan')     ?>
-                                <?= $this->html->link('Vesta')      ?>
-                                <?= $this->html->link('Mercury')    ?>
-                                <?= $this->html->link('Ceres')      ?>
+                                <li><?= $this->Html->link('Jupiter, King of the Gods', ['controller' => 'religion', 'action' => 'jupiter']) ?></li>
+                                <li><?= $this->Html->link('Juno, Queen of the Gods', ['controller' => 'religion', 'action' => 'juno']) ?></li>
+                                <li><?= $this->Html->link('Neptune, God of the Seas', ['controller' => 'religion', 'action' => 'neptune']) ?></li>
+                                <li><?= $this->Html->link('Minerva, Goddess of Wisdom', ['controller' => 'religion', 'action' => 'minerva']) ?></li>
+                                <li><?= $this->Html->link('Mars, God of War', ['controller' => 'religion', 'action' => 'mars']) ?></li>
+                                <li><?= $this->Html->link('Venus, Goddess of Love', ['controller' => 'religion', 'action' => 'venus']) ?></li>
+                                <li><?= $this->Html->link('Apollo, God of Healing', ['controller' => 'religion', 'action' => 'apollo']) ?></li>
+                                <li><?= $this->Html->link('Diana, Goddess of the Hunt', ['controller' => 'religion', 'action' => 'diana']) ?></li>
+                                <li><?= $this->Html->link('Vulcan, God of the Forge', ['controller' => 'religion', 'action' => 'vulcan']) ?></li>
+                                <li><?= $this->Html->link('Vesta, Goddess of the Hearth', ['controller' => 'religion', 'action' => 'vesta']) ?></li>
+                                <li><?= $this->Html->link('Mercury, King of Travellers', ['controller' => 'religion', 'action' => 'mercury']) ?></li>
+                                <li><?= $this->Html->link('Ceres, God of Agriculture', ['controller' => 'religion', 'action' => 'ceres']) ?></li>
                             </ul>
                         </li>
-                        <li><?= $this->html->link('Major and Minor Gods') ?></li>
-                        <li><?= $this->html->link('Christianity') ?></li>
+                        <li><?= $this->Html->link('Major and Minor Gods', ['controller' => 'religion', 'action' => 'majorMinorGods']) ?></li>
+                        <li><?= $this->Html->link('Christianity', ['controller' => 'religion', 'action' => 'christianity']) ?></li>
                     </ul>
                 </li>
-                <li><?= $this->html->link('Album Civium', ['controller' => 'Cives', 'action' => 'index']) ?></li>
-                <li><?= $this->html->link('FAQ', ['controller' => 'Pages', 'action' => 'faq']) ?></li>
+                <li><?= $this->Html->link('Album Civium', ['controller' => 'Cives', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('FAQ', ['controller' => 'Pages', 'action' => 'faq']) ?></li>
                 <?php if (isset($isLoggedIn) && $isLoggedIn) { ?>
                     <li>
-                        <?= $this->html->link('Account',) ?>
-                        <?php //['id' => $id] 
-                        ?>
+                        <?= $this->Html->link('Account', ['controller' => 'Cives', 'action' => 'view', $loggedInCivis->CIVISID]) ?>
+                        <ul>
+                            <li><?= $this->Html->link('Edit Profile', ['controller' => 'Cives', 'action' => 'edit', $loggedInCivis->CIVISID]) ?></li>
+                            <li><?= $this->Html->link('Sign Out', ['controller' => 'Cives', 'action' => 'logout']) ?></li>
+                        </ul>
                     </li>
                 <?php } else { ?>
                     <li>
-                        <?= $this->html->link('Log in / Sign Up',) ?>
+                        <?= $this->Html->link('Log in / Sign Up', ['controller' => 'Cives', 'action' => 'login']) ?>
+                        <ul>
+                            <li><?= $this->Html->link('Log in', ['controller' => 'Cives', 'action' => 'login']) ?></li>
+                            <li><?= $this->Html->link('Sign Up', ['controller' => 'Cives', 'action' => 'signup']) ?></li>
+                        </ul>
                     </li>
                 <?php } ?>
             </ul>
@@ -151,7 +159,7 @@
                                         <a href="mailto:Perusinus@gmail.com">Perusinus@gmail.com</a>
                                     </p>
                                     <p>
-                                        <a href="mailto:imperivm.romanvm.media@gmail.com">imperivm.romanvm.media@gmail.com</a>
+                                        <a href="mailto:senatores@imperivm-romanvm.com">senatores@imperivm-romanvm.com</a>
                                     </p>
                                 </section>
                             </div>
@@ -173,7 +181,7 @@
                     <li>&copy; <?= date('Y') ?> <a href="/">Imperivm Romanvm</a>.</li>
                     <li><a href="https://www.instagram.com/imperivmromanum"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.reddit.com/r/RomaTertia/"><i class="fab fa-reddit"></i></a></li>
-                    <li><a href="https://twitter.com/ImperivmRomanum"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://twitter.com/OfficialRomanvm"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="https://discord.gg/TPCs2FKnKA"><i class="fab fa-discord"></i></a></li>
                 </ul>
             </div>

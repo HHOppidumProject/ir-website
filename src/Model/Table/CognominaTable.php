@@ -8,8 +8,7 @@ class CognominaTable extends Table
 {
     public function initialize(array $config): void
     {
-        $this->setTable('COGNOMINA');
+        $this->setTable('Cognomina_Et_Agnomina');
         $this->setPrimaryKey('COGNOMENID');
-        $this->belongsTo('CIVES');
     }
 }

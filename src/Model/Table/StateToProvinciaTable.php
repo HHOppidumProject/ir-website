@@ -8,8 +8,9 @@ class StateToProvinciaTable extends Table
 {
     public function initialize(array $config): void
     {
-        $this->setTable('STATE_TO_PROVINCIA');
+        $this->setTable('State_To_Provincia');
         $this->setPrimaryKey('STATEID');
-        $this->belongsTo('CIVES_PRIV');
+        $this->belongsTo('Countries')->setForeignKey("COUNTRY")->setJoinType('INNER');;
+        $this->belongsTo('Provincia')->setForeignKey("PROVINCIA")->setJoinType('INNER');;
     }
 }

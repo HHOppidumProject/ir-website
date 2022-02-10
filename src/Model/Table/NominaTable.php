@@ -8,7 +8,7 @@ class NominaTable extends Table
 {
     public function initialize(array $config): void
     {
-        $this->setTable('NOMINA');
+        $this->setTable('Nomina');
         $this->setPrimaryKey('NOMENID');
         $this->belongsTo('CIVES');
     }

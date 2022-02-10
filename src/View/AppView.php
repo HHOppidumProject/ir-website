@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -13,9 +14,11 @@ declare(strict_types=1);
  * @since     3.0.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\View;
 
 use Cake\View\View;
+use Cake\ORM\Locator\LocatorAwareTrait;
 
 /**
  * Application View
@@ -26,6 +29,9 @@ use Cake\View\View;
  */
 class AppView extends View
 {
+
+    use LocatorAwareTrait;
+
     /**
      * Initialization hook method.
      *
@@ -37,5 +43,21 @@ class AppView extends View
      */
     public function initialize(): void
     {
+        $cookies = $this->request->getCookieCollection();
+        if ($cookies->has('ID') && $cookies->has('abxyzh') && $cookies->has('EMAIL')) {
+            $locator = $this->getTableLocator();
+            $Cives = $locator->get('Cives');
+            try {
+                $civis = $Cives->findByIdAndEmailAndPassword($cookies->get('ID')->getValue(), $cookies->get('EMAIL')->getValue(), $cookies->get('abxyzh')->getValue())->firstOrFail();
+                if (!$civis->getErrors()) {
+                    $this->set('isLoggedIn', true);
+                    $this->set('loggedInCivis', $civis);
+                } else {
+                    $this->Flash->warning('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                }
+            } catch (mixed) {
+                $this->Flash->warning('Cookies are set incorrectly. Did you tamper them or is this an error?');
+            }
+        }
     }
 }

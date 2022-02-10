@@ -8,7 +8,8 @@ class CountriesTable extends Table
 {
     public function initialize(array $config): void
     {
-        $this->setTable('COUNTRIES');
+        $this->setTable('Countries');
         $this->setPrimaryKey('COUNTRYID');
+        $this->hasMany('StateToProvincia')->setForeignKey('COUNTRY');
     }
 }
