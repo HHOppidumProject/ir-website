@@ -32,6 +32,9 @@
 
         <div class="has-text-centered" style="width: 75%; max-width: 75%; margin: auto;">
             <h4 class="subtitle is-4">Already a citizen? <?= $this->Html->link('Login', ['action' => 'login'])    ?></h4>
+            <div>
+                <h5 class="is-subtitle is-5">Any questions? Check out the <?= $this->Html->link('FAQ', ['action' => 'faq'])    ?>!</h2>
+            </div>
 
             <?php
             echo '<label>Email</label>';

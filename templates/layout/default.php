@@ -69,6 +69,7 @@
                         <ul>
                             <li><?= $this->Html->link('Edit Profile', ['controller' => 'Cives', 'action' => 'edit', $loggedInCivis->CIVISID]) ?></li>
                             <li><?= $this->Html->link('Sign Out', ['controller' => 'Cives', 'action' => 'logout']) ?></li>
+                            <li><?= $this->Html->link('Account FAQ', ['controller' => 'Cives', 'action' => 'faq']) ?></li>
                         </ul>
                     </li>
                 <?php } else { ?>
@@ -77,6 +78,7 @@
                         <ul>
                             <li><?= $this->Html->link('Log in', ['controller' => 'Cives', 'action' => 'login']) ?></li>
                             <li><?= $this->Html->link('Sign Up', ['controller' => 'Cives', 'action' => 'signup']) ?></li>
+                            <li><?= $this->Html->link('Sign Up FAQ', ['controller' => 'Cives', 'action' => 'faq']) ?></li>
                         </ul>
                     </li>
                 <?php } ?>
