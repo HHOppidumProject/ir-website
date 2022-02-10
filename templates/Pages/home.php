@@ -16,14 +16,14 @@ $this->assign('title', 'Home')
  */
 ?>
 <section id="intro" class="wrapper style-1">
-    <div class="title">Our Community</div>
+    <div class="title" style="color: white;">Our Community</div>
     <div class="container">
-        <p class="style1">What is Imperivm Romanvm</p>
+        <p class="style1" style="color: white;">What is Imperivm Romanvm</p>
         <p class="style2" style="overflow-wrap: break-word; width:auto;">
             Imperivm Romanvm is a new, young Roman Community<br class="mobile-hide" />
             With a plan to build a new home for all New Romans.
         </p>
-        <p class="style3">Founded on October 20th 2021, Imperivm Romanvm is a community which strives to promote the religious and cultural traditions of the ancient, classsical and medieval Roman Empire; from its earliest founding under the monarchy to the fall of Constantinople in 1453. Our community believe that Roman customs, identity, and virtues are the key to living better lives.</p>
+        <p class="style3" style="color: white;">Founded on October 20th 2021, Imperivm Romanvm is a community which strives to promote the religious and cultural traditions of the ancient, classsical and medieval Roman Empire; from its earliest founding under the monarchy to the fall of Constantinople in 1453. Our community believe that Roman customs, identity, and virtues are the key to living better lives.</p>
         <div class="has-text-centered">
             <a class="button is-primary" id="learnMorePrimary">Learn More</a>
         </div>
