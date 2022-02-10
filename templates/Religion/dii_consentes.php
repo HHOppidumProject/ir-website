@@ -22,6 +22,7 @@
 			</div>
 		</div>
 		<div class="column" style="background-image:url(/img/dii-consentes.jpg); background-size:cover;">
+		<p style="font-size: 0.4em"><?= $this->Html->link('Maierstrom.org', 'https://maierstorm.org/Vampire/images/f/ff/Alter_of_the_Twelve_Gods.jpg'); ?></p>
 		</div>
 	</div>
 </section>

@@ -19,6 +19,7 @@ namespace App\View;
 
 use Cake\View\View;
 use Cake\ORM\Locator\LocatorAwareTrait;
+use Cake\Datasource\Exception\RecordNotFoundException;
 
 /**
  * Application View
@@ -53,10 +54,12 @@ class AppView extends View
                     $this->set('isLoggedIn', true);
                     $this->set('loggedInCivis', $civis);
                 } else {
-                    $this->Flash->warning('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                    $this->Flash->set('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                    $this->Flash->render();
                 }
-            } catch (mixed) {
-                $this->Flash->warning('Cookies are set incorrectly. Did you tamper them or is this an error?');
+            } catch (mixed | RecordNotFoundException $e) {
+                $this->Flash->set('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                $this->Flash->render();
             }
         }
     }
