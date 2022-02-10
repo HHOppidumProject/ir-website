@@ -16,6 +16,12 @@
     </div>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
+        <h2>History</h2>
+        <p>The worship of Jupiter in his earliest incarnation was found among the Proto-Indo-Europeans, who called him ‘Dyeus Pitar’, or ‘Daylight Sky-Father’. His worship would spread across various regions in Europe, with his name developing into ‘Dios’ or ‘Zeus’ among the Greeks, and 'Diespiter’ or ‘Jupiter’ among the Italian peoples.</p>
+        <p>A common misconception is that the Ancient Romans simply adopted the Greek Pantheon and changed the names, but this is false. The Romans already had a host of deities to worship, and many of them shared the same origin as Greek deities. It was only natural that the Romans saw their Jupiter in the Grecian Zeus.</p>
+    </div>
+
+    <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
         <h2>Mythology and Legends</h2>
         <p>Jupiter is said to have ordained the foundation of Rome long before the birth of Romulus. When the Greeks sacked the city of Troy and razed it to the ground, a minor tribe of Trojans known as Dardans managed to escape. Their leader, a son of Venus named Aeneas, led the refugee Trojans into Italy to preserve both their lives and their sacred rites. Aeneas himself would marry the native princess of the Latin tribe, Lavinia. Romulus himself would be born of this lineage many generations later.</p>
     </div>

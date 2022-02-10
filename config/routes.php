@@ -53,6 +53,7 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
         $builder->connect('/faq/*', ['controller' => 'Pages', 'action' => 'faq']);
         $builder->connect('/donate/*', ['controller' => 'Pages', 'action' => 'donate']);
+        $builder->connect('/cives/success/*', ['controller' => 'Cives', 'action' => 'success']);
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
