@@ -15,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/vnd.microsoft/icon" href="/favicon.ico" />
-    <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'bootstrap.min.css', 'style.css']) ?>
-    <?= $this->Html->script(['jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
+    <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css', 'style.css']) ?>
+    <?= $this->Html->script(['https://code.jquery.com/jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
     <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
 
 </head>
@@ -194,6 +194,6 @@
 
 </body>
 
-<?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
+<?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
 
 </html>
