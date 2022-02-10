@@ -217,4 +217,8 @@ class CivesController extends AppController
                 "\nIf there is any problems please contact : censores@imperivm-romanvm.com");
         $this->set(compact('civis'));
     }
+
+    public function faq(){
+        $this->viewBuilder()->setLayout('default');
+    }
 }
