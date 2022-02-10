@@ -98,7 +98,7 @@ class CivesController extends AppController
                                 false
                             ),
                         ]));
-                        $this->redirect($this->referer());
+                        $this->redirect(['action' => 'index']);
                     }
                 } catch (RecordNotFoundException $e) {
                     $this->set('notFound', true);
