@@ -131,7 +131,26 @@ return [
         [
             'role' => '*',
             'controller' => 'Pages',
-            'action' => 'display',
+            'action' => '*',
+            'bypassAuth' => true,
+        ],
+        [
+            'role' => '*',
+            'controller' => 'Cives',
+            'action' => '*',
+            'bypassAuth' => true,
+        ],
+        [
+            'role' => '*',
+            'controller' => 'Error',
+            'action' => '*',
+            'bypassAuth' => true,
+        ],
+        [
+            'role' => '*',
+            'controller' => '*',
+            'action' => '*',
+            'bypassAuth' => true,
         ],
         [
             'role' => '*',

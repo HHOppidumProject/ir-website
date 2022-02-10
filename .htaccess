@@ -1,7 +1,9 @@
 # Uncomment the following to prevent the httpoxy vulnerability
 # See: https://httpoxy.org/
 <IfModule mod_headers.c>
-   RequestHeader unset Proxy
+    RequestHeader unset Proxy
+    #TODO to be checked for any false matches, also needs to be checked to see if regex accepted, might be able to change to that
+	Header set Access-Control-Allow-Origin "*.imperivm-romanvm.com"
 </IfModule>
 
 <IfModule mod_rewrite.c>
