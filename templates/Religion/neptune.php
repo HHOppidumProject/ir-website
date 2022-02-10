@@ -6,9 +6,9 @@
 ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Neptune</h1>
-    <div class="hero is-widescreen has-text-centered" style="background-image:url(/img/neptune.jpg); background-size: cover; height:75vh;">
-        <h2 class="subtitle is-1" style="color:var(--brand-color)">God of the Seas</h2>
-    </div>
+    <img class="image is-fullwidth" style="border: none;" src="/img/neptune.jpg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:House_of_the_Neptune_Mosaic_(7254082844).jpg') ?></p>
+    <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">God of the Seas</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
         <h2>Background</h2>

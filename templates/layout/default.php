@@ -14,9 +14,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" type="image/vnd.microsoft/icon" href="favicon.ico" />
-    <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'bootstrap.min.css', 'style.css']) ?>
-    <?= $this->Html->script(['jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
+    <link rel="shortcut icon" type="image/vnd.microsoft/icon" href="/favicon.ico" />
+    <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css', 'style.css']) ?>
+    <?= $this->Html->script(['https://code.jquery.com/jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
     <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
 
 </head>
@@ -43,21 +43,21 @@
                         <li>
                             <?= $this->Html->link('Dii Consentes', ['controller' => 'religion', 'action' => 'diiConsentes']) ?>
                             <ul>
-                                <li><?= $this->Html->link('Jupiter, King of the Gods', ['controller' => 'religion', 'action' => 'jupiter']) ?></li>
-                                <li><?= $this->Html->link('Juno, Queen of the Gods', ['controller' => 'religion', 'action' => 'juno']) ?></li>
-                                <li><?= $this->Html->link('Neptune, God of the Seas', ['controller' => 'religion', 'action' => 'neptune']) ?></li>
-                                <li><?= $this->Html->link('Minerva, Goddess of Wisdom', ['controller' => 'religion', 'action' => 'minerva']) ?></li>
-                                <li><?= $this->Html->link('Mars, God of War', ['controller' => 'religion', 'action' => 'mars']) ?></li>
-                                <li><?= $this->Html->link('Venus, Goddess of Love', ['controller' => 'religion', 'action' => 'venus']) ?></li>
-                                <li><?= $this->Html->link('Apollo, God of Healing', ['controller' => 'religion', 'action' => 'apollo']) ?></li>
-                                <li><?= $this->Html->link('Diana, Goddess of the Hunt', ['controller' => 'religion', 'action' => 'diana']) ?></li>
-                                <li><?= $this->Html->link('Vulcan, God of the Forge', ['controller' => 'religion', 'action' => 'vulcan']) ?></li>
-                                <li><?= $this->Html->link('Vesta, Goddess of the Hearth', ['controller' => 'religion', 'action' => 'vesta']) ?></li>
-                                <li><?= $this->Html->link('Mercury, King of Travellers', ['controller' => 'religion', 'action' => 'mercury']) ?></li>
-                                <li><?= $this->Html->link('Ceres, God of Agriculture', ['controller' => 'religion', 'action' => 'ceres']) ?></li>
+                                <li><?= $this->Html->link('Jupiter', ['controller' => 'religion', 'action' => 'jupiter']) ?></li>
+                                <li><?= $this->Html->link('Juno', ['controller' => 'religion', 'action' => 'juno']) ?></li>
+                                <li><?= $this->Html->link('Neptune', ['controller' => 'religion', 'action' => 'neptune']) ?></li>
+                                <li><?= $this->Html->link('Minerva', ['controller' => 'religion', 'action' => 'minerva']) ?></li>
+                                <li><?= $this->Html->link('Mars', ['controller' => 'religion', 'action' => 'mars']) ?></li>
+                                <li><?= $this->Html->link('Venus', ['controller' => 'religion', 'action' => 'venus']) ?></li>
+                                <li><?= $this->Html->link('Apollo', ['controller' => 'religion', 'action' => 'apollo']) ?></li>
+                                <li><?= $this->Html->link('Diana', ['controller' => 'religion', 'action' => 'diana']) ?></li>
+                                <li><?= $this->Html->link('Vulcan', ['controller' => 'religion', 'action' => 'vulcan']) ?></li>
+                                <li><?= $this->Html->link('Vesta', ['controller' => 'religion', 'action' => 'vesta']) ?></li>
+                                <li><?= $this->Html->link('Mercury', ['controller' => 'religion', 'action' => 'mercury']) ?></li>
+                                <li><?= $this->Html->link('Ceres', ['controller' => 'religion', 'action' => 'ceres']) ?></li>
                             </ul>
                         </li>
-                        <li><?= $this->Html->link('Major and Minor Gods', ['controller' => 'religion', 'action' => 'majorMinorGods']) ?></li>
+                        <li><?= $this->Html->link('Minor Gods', ['controller' => 'religion', 'action' => 'majorMinorGods']) ?></li>
                         <li><?= $this->Html->link('Christianity', ['controller' => 'religion', 'action' => 'christianity']) ?></li>
                     </ul>
                 </li>
@@ -69,6 +69,7 @@
                         <ul>
                             <li><?= $this->Html->link('Edit Profile', ['controller' => 'Cives', 'action' => 'edit', $loggedInCivis->CIVISID]) ?></li>
                             <li><?= $this->Html->link('Sign Out', ['controller' => 'Cives', 'action' => 'logout']) ?></li>
+                            <li><?= $this->Html->link('Account FAQ', ['controller' => 'Cives', 'action' => 'faq']) ?></li>
                         </ul>
                     </li>
                 <?php } else { ?>
@@ -77,6 +78,7 @@
                         <ul>
                             <li><?= $this->Html->link('Log in', ['controller' => 'Cives', 'action' => 'login']) ?></li>
                             <li><?= $this->Html->link('Sign Up', ['controller' => 'Cives', 'action' => 'signup']) ?></li>
+                            <li><?= $this->Html->link('Sign Up FAQ', ['controller' => 'Cives', 'action' => 'faq']) ?></li>
                         </ul>
                     </li>
                 <?php } ?>
@@ -192,6 +194,6 @@
 
 </body>
 
-<?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
+<?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
 
 </html>

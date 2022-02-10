@@ -98,7 +98,7 @@ class CivesController extends AppController
                                 false
                             ),
                         ]));
-                        $this->redirect($this->referer());
+                        $this->redirect(['action' => 'index']);
                     }
                 } catch (RecordNotFoundException $e) {
                     $this->set('notFound', true);
@@ -216,5 +216,9 @@ class CivesController extends AppController
                 "\nProvince: " . $civis->cives_priv->state_to_provincium->provincium->PROVINCENAME .
                 "\nIf there is any problems please contact : censores@imperivm-romanvm.com");
         $this->set(compact('civis'));
+    }
+
+    public function faq(){
+        $this->viewBuilder()->setLayout('default');
     }
 }
