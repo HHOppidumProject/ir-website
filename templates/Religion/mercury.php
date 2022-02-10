@@ -7,6 +7,7 @@
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Mercury</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/mercury.jpg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Mercury_(deity)_relief.jpg') ?></p>
     <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">God of Travelers</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">

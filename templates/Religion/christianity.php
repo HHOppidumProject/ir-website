@@ -1,6 +1,7 @@
 <section id="highlights" class="wrapper style3">
     <div class="title">Christ</div>
     <img class="image is-fullwidth" style="border: none;" src="/img/christianitybanner.jpg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Deesis_mosaic_Hagia_Sophia.jpg') ?></p>
     <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">The Son, Savior and Messiah</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">

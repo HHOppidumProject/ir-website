@@ -7,6 +7,7 @@
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Mars</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/mars.jpg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Colossal_statue_of_Mars,_end_of_1st_century_AD,_from_the_Forum_Transitorium_in_Rome,_Capitoline_Museums_(12879072994).jpg') ?></p>
     <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">God of War</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">

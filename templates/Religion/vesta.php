@@ -7,6 +7,7 @@
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Vesta</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/vesta.jpg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Jean-baptiste-sim%C3%A9on_chardin_(attr.),_le_vergini_vestali,_1760-70_ca.jpg') ?></p>
     <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">Goddess of the Hearth</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">

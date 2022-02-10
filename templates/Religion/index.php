@@ -12,16 +12,25 @@
                 <h1 class="subtitle is-4" style="color:white !important;">Dii Consentes</h1>
                 <p style="padding-top:4rem">The twelve most prominent deities worshiped in the Ancient Roman world.</p>
                 <?= $this->Html->link('See More', ['action' => 'diiConsentes'], ['class' => 'button is-normal is-link is-primary', 'style' => 'width:75%;margin:auto; margin-bottom:50%;']) ?>
+                <footer>
+                    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:20190406-DSC5193_Panteon.jpg'); ?></p>
+                </footer>
             </div>
             <div class="card has-text-centered" style="background-image: url(/img/major-minor-gods.jpg); background-size: cover; color:white">
                 <h1 class="subtitle is-4" style="color:white !important;">Major and Minor Gods</h1>
                 <p style="padding-top:4rem">The gods allotted priests, festivals, and places of reverence within Roman society.</p>
                 <?= $this->Html->link('See More', ['action' => 'majorMinorGods'], ['class' => 'button is-normal is-link is-primary', 'style' => 'width:75%;margin:auto; margin-bottom:50%;']) ?>
+                <footer>
+                    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Musei_CapitoliniDSCF6734.jpg'); ?></p>
+                </footer>
             </div>
             <div class="card has-text-centered" style="background-image: url(/img/christianity.jpg); background-size: cover; color:white">
                 <h1 class="subtitle is-4" style="color:white !important;">Christ, Christianity, and the Nicene Creed</h1>
                 <p style="padding-top:4rem;">How a Jewish Preacher from Galilee, executed by Roman authorities, became revered as the Lord, and how Jesus is seen by us.</p>
                 <?= $this->Html->link('See More', ['action' => 'christianity'], ['class' => 'button is-normal is-link is-primary', 'style' => 'width:75%;margin:auto; margin-bottom:50%;']) ?>
+                <footer>
+                    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Spas_vsederzhitel_sinay.jpg'); ?></p>
+                </footer>
             </div>
         </div>
     </div>

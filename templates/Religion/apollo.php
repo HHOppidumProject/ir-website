@@ -7,6 +7,7 @@
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Apollo</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/apollo.jpeg"/>
+    <p style="font-size: 0.4em"><?= $this->Html->link('Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Belvedere_Apollo_Pio-Clementino_Inv1015_n5.jpg') ?></p>
     
     <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">God of Healing</h2>
 
