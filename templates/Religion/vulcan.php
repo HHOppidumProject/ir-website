@@ -6,10 +6,8 @@
 ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Vulcan</h1>
-    <div class="hero is-widescreen has-text-centered" style="background-image:url(/img/vulcan.jpg); background-size: cover; height:75vh;">
-
-        <h2 class="subtitle is-1" style="color:var(--brand-color)">God of the Forge</h2>
-    </div>
+    <img class="image is-fullwidth" style="border: none;" src="/img/vulcan.jpg"/>
+    <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">God of the Forge</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
         <h2>Background</h2>

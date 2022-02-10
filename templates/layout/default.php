@@ -43,21 +43,21 @@
                         <li>
                             <?= $this->Html->link('Dii Consentes', ['controller' => 'religion', 'action' => 'diiConsentes']) ?>
                             <ul>
-                                <li><?= $this->Html->link('Jupiter, King of the Gods', ['controller' => 'religion', 'action' => 'jupiter']) ?></li>
-                                <li><?= $this->Html->link('Juno, Queen of the Gods', ['controller' => 'religion', 'action' => 'juno']) ?></li>
-                                <li><?= $this->Html->link('Neptune, God of the Seas', ['controller' => 'religion', 'action' => 'neptune']) ?></li>
-                                <li><?= $this->Html->link('Minerva, Goddess of Wisdom', ['controller' => 'religion', 'action' => 'minerva']) ?></li>
-                                <li><?= $this->Html->link('Mars, God of War', ['controller' => 'religion', 'action' => 'mars']) ?></li>
-                                <li><?= $this->Html->link('Venus, Goddess of Love', ['controller' => 'religion', 'action' => 'venus']) ?></li>
-                                <li><?= $this->Html->link('Apollo, God of Healing', ['controller' => 'religion', 'action' => 'apollo']) ?></li>
-                                <li><?= $this->Html->link('Diana, Goddess of the Hunt', ['controller' => 'religion', 'action' => 'diana']) ?></li>
-                                <li><?= $this->Html->link('Vulcan, God of the Forge', ['controller' => 'religion', 'action' => 'vulcan']) ?></li>
-                                <li><?= $this->Html->link('Vesta, Goddess of the Hearth', ['controller' => 'religion', 'action' => 'vesta']) ?></li>
-                                <li><?= $this->Html->link('Mercury, King of Travellers', ['controller' => 'religion', 'action' => 'mercury']) ?></li>
-                                <li><?= $this->Html->link('Ceres, God of Agriculture', ['controller' => 'religion', 'action' => 'ceres']) ?></li>
+                                <li><?= $this->Html->link('Jupiter', ['controller' => 'religion', 'action' => 'jupiter']) ?></li>
+                                <li><?= $this->Html->link('Juno', ['controller' => 'religion', 'action' => 'juno']) ?></li>
+                                <li><?= $this->Html->link('Neptune', ['controller' => 'religion', 'action' => 'neptune']) ?></li>
+                                <li><?= $this->Html->link('Minerva', ['controller' => 'religion', 'action' => 'minerva']) ?></li>
+                                <li><?= $this->Html->link('Mars', ['controller' => 'religion', 'action' => 'mars']) ?></li>
+                                <li><?= $this->Html->link('Venus', ['controller' => 'religion', 'action' => 'venus']) ?></li>
+                                <li><?= $this->Html->link('Apollo', ['controller' => 'religion', 'action' => 'apollo']) ?></li>
+                                <li><?= $this->Html->link('Diana', ['controller' => 'religion', 'action' => 'diana']) ?></li>
+                                <li><?= $this->Html->link('Vulcan', ['controller' => 'religion', 'action' => 'vulcan']) ?></li>
+                                <li><?= $this->Html->link('Vesta', ['controller' => 'religion', 'action' => 'vesta']) ?></li>
+                                <li><?= $this->Html->link('Mercury', ['controller' => 'religion', 'action' => 'mercury']) ?></li>
+                                <li><?= $this->Html->link('Ceres', ['controller' => 'religion', 'action' => 'ceres']) ?></li>
                             </ul>
                         </li>
-                        <li><?= $this->Html->link('Major and Minor Gods', ['controller' => 'religion', 'action' => 'majorMinorGods']) ?></li>
+                        <li><?= $this->Html->link('Minor Gods', ['controller' => 'religion', 'action' => 'majorMinorGods']) ?></li>
                         <li><?= $this->Html->link('Christianity', ['controller' => 'religion', 'action' => 'christianity']) ?></li>
                     </ul>
                 </li>

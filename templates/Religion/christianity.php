@@ -1,8 +1,7 @@
 <section id="highlights" class="wrapper style3">
     <div class="title">Christ</div>
-    <div class="hero is-widescreen has-text-centered" style="background-image:url(/img/christianitybanner.jpg); background-size: cover; height:75vh;">
-        <h2 class="subtitle is-1" style="color:var(--brand-color)">The Son, Savior and Messiah</h2>
-    </div>
+    <img class="image is-fullwidth" style="border: none;" src="/img/christianitybanner.jpg"/>
+    <h2 class="subtitle is-1 has-text-centered" style="color:var(--brand-color)">The Son, Savior and Messiah</h2>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
         <h2>Background</h2>
