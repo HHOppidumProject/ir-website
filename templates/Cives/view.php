@@ -19,7 +19,7 @@ echo $this->Paginator->meta();
             <p>Shorthand: <?= h($shrtNameString); ?></p>
         </div>
         <div>
-            <p>Status: <?= time() - (60 * 60 * 365) < strtotime($civis->cives_priv->LAST_PAID_TAX) ? 'Active/Has paid tax' : 'Inactive/Tax due'; ?></p>
+            <p>Status: <?= (time() - (60 * 60 * 24 * 365)) < strtotime($civis->cives_priv->LAST_PAID_TAX) ? 'Active/Has paid tax' : 'Inactive/Tax due'; ?></p>
         </div>
         <div>
             <p>Gens: <?= h($civis->nomina->GENS); ?></p>
@@ -49,8 +49,12 @@ echo $this->Paginator->meta();
     </div>
     <div class="has-text-centered">
         <?php
-        if ($loggedInCivis->CIVISID === $civis->CIVISID && $loggedInCivis->PASSWORDHASH === $civis->PASSWORDHASH && $loggedInCivis->EMAIL === $civis->EMAIL) {
-            echo $this->Html->Link("Edit Profile", ['action' => 'edit', $loggedInCivis->CIVISID], ['class' => 'button is-primary is-fullwidth']);
+        if (isset($isLoggedIn)) {
+            if ($isLoggedIn && isset($loggedInCivis)) {
+                if ($loggedInCivis->CIVISID === $civis->CIVISID && $loggedInCivis->PASSWORDHASH === $civis->PASSWORDHASH && $loggedInCivis->EMAIL === $civis->EMAIL) {
+                    echo $this->Html->Link("Edit Profile", ['action' => 'edit', $loggedInCivis->CIVISID], ['class' => 'button is-primary is-fullwidth']);
+                }
+            }
         }
         ?>
     </div>

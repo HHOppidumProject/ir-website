@@ -10,9 +10,21 @@
     </div>
     <div id="our-sections" class="jumbotron">
         <h4 class="subtitle is-4" style="text-align:left">Why is my name and address required to become a citizen?</h4>
-        <h5 class="subtitle is-5" style="text-align:right">Address:</h5>
-        <p style="text-align:right">Your address is used for shipping purposes and to assign you to a provincia. It is not used in any other circumstance and no one is able to retreive your address except officials and yourself.</p>
-        <h5 class="subtitle is-5" style="text-align:right">Name:</h5>
-        <p style="text-align:right">Your name is used for shipping purposes only.</p>
+        <h5 class="subtitle is-5" style="text-align:center">Address:</h5>
+        <p style="text-align:center">Your address is used for shipping purposes and to assign you to a provincia. It is not used in any other circumstance and no one is able to retreive your address except officials and yourself.</p>
+        <h5 class="subtitle is-5" style="text-align:center">Name:</h5>
+        <p style="text-align:center">Your name is used for shipping purposes only.</p>
+    </div>
+    <div id="our-sections" class="jumbotron">
+        <h4 class="subtitle is-4" style="text-align:left">Preferred Word Gender? What does that mean?</h4>
+        <p style="text-align:center">Latin has 3 word genders: Male, Female and Neuter. Names in Latin only have 2 genders: Male and Female. To conform to the ways of the language we ask which of these forms you prefer to be addressed with. We of course do not wish to intrude on your sexuality or sexual identity. For this reason we allow you to enter your gender as opposed to choosing from a dropdown, however some genders will be flagged and we will be sent an email to review your application if such occurs.</p>
+    </div>
+    <div id="our-sections" class="jumbotron">
+        <h4 class="subtitle is-4" style="text-align:left">Does occupation refer to within the Imperivm, or your day job?</h4>
+        <p style="text-align:center">Occupation refers to your day job.</p>
+    </div>
+    <div id="our-sections" class="jumbotron">
+        <h4 class="subtitle is-4" style="text-align:left">My country is not in the accepted list, what should I do?</h4>
+        <p style="text-align:center">If your country is not in the list please contact the censors <bold>AND</bold> the senators to inform them of such sometimes such happens and we cannot avoid the problem. We are currently acceepting applications in over 100 countries across the globe.</p>
     </div>
 </section>

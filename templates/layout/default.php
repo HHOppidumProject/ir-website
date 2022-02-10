@@ -148,7 +148,7 @@
                                 <section>
                                     <h3 class="icon solid fa-comment">Social</h3>
                                     <p>
-                                        <a href="https://www.instagram.com/imperivmromanum">@imperivmromanum</a><br />
+                                        <a href="https://www.instagram.com/officialromanvm">@imperivmromanum</a><br />
                                         <a href="https://www.reddit.com/r/RomaTertia/">r/RomaTertia</a><br />
                                         <a href="https://discord.gg/TPCs2FKnKA">Imperivm Romanvm Discord Server</a>
                                     </p>
@@ -181,7 +181,7 @@
             <div id="copyright">
                 <ul>
                     <li>&copy; <?= date('Y') ?> <a href="/">Imperivm Romanvm</a>.</li>
-                    <li><a href="https://www.instagram.com/imperivmromanum"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.instagram.com/officialromanvm"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.reddit.com/r/RomaTertia/"><i class="fab fa-reddit"></i></a></li>
                     <li><a href="https://twitter.com/OfficialRomanvm"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="https://discord.gg/TPCs2FKnKA"><i class="fab fa-discord"></i></a></li>

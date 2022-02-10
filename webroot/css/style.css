@@ -271,6 +271,14 @@
     width: 100%;
  }
 
+ .jumbotron h2 {
+     color: white;
+ }
+
+ .jumbotron h5 {
+    color: white;
+}
+
  @media screen and (max-width: 736px) {
      #learnMorePrimary {
         font-size: 0.75rem;
