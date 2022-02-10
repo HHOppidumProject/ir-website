@@ -110,7 +110,7 @@ $this->assign('title', 'Home')
                     <div class="content">
                         There are many paths to living life as a modern Roman, but all of them require action and an openness to fellowship. It is a rewarding experience which enriches the ethical and spiritual life of individuals. A means of not only adjusting to the problems of the modern world, but offering an alternative to many of today's trends and norms.
                     </div>
-                    <footer><?= $this->Html->link('Explore Roman Culture »', [], ['class' => "button is-primary is-small is-fullwidth"]) ?></footer>
+                    <footer><?= $this->Html->link('Learn About Romanitas »', [], ['class' => "button is-primary is-small is-fullwidth"]) ?></footer>
                 </div>
             </div>
         </div>
