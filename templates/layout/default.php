@@ -11,6 +11,19 @@
 <head>
     <meta charset="utf-8">
     <title>The Imperivm Romanvm - <?= h($this->fetch('title')) ?></title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220454706-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-220454706-1');
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="X-UA-Compatible" content="IE=edge" />

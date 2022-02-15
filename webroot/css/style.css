@@ -43,6 +43,16 @@
      border-color    : var(--brand-color2);
  }
 
+ button.button.is-primary {
+     background-color: var(--brand-color2);
+     border-color    : var(--brand-color2);
+ }
+
+ button.button.is-primary:hover {
+     background-color: var(--brand-color4);
+     border-color    : var(--brand-color2);
+ }
+
  #our-sections {
      background-color: var(--brand-color);
      color           : white;
@@ -267,8 +277,8 @@
  }
 
  #learnMorePrimary {
-    display: flex;
-    width: 100%;
+     display: flex;
+     width  : 100%;
  }
 
  .jumbotron h2 {
@@ -276,12 +286,11 @@
  }
 
  .jumbotron h5 {
-    color: white;
-}
+     color: white;
+ }
 
  @media screen and (max-width: 736px) {
      #learnMorePrimary {
-        font-size: 0.75rem;
+         font-size: 0.75rem;
      }
  }
-
