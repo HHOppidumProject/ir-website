@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Religion - Christianity'); ?>
 <section id="highlights" class="wrapper style3">
     <div class="title">Christ</div>
     <img class="image is-fullwidth" style="border: none;" src="/img/christianitybanner.jpg"/>

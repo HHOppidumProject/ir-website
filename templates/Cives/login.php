@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Login'); ?>
 <section id="highlights" class="wrapper style3">
     <h2 class="title is-2">Login</h2>
     <?php echo $this->Form->create($civis, ['id' => 'cives']); ?>

@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Join the Imperivm'); ?>
 <section id="highlights" class="wrapper style3">
     <?php if (!$isSuccessful) { ?>
         <h2 class="title is-2">Sign Up</h2>

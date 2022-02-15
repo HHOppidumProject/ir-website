@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Religion - Major and Minor Gods'); ?>
 <section id="highlights" class="wrapper style3">
     <h2 class="title is-3">Major and Minor gods of the Religio Romana</h2>
     <div class="hero has-text-centered">
