@@ -31,7 +31,7 @@
     <div id="our-sections" class="jumbotron">
         <h4 class="subtitle is-4" style="text-align:left">I don't understand Roman Names</h4>
         <p style="text-align:center">If you don't understand Roman Naming Conventions, then good news! We have a wiki page dedicated to Roman Naming and we even have a list of all the names a civis can use in their name listed there (all 9 million of them!) However, if you use the form to sign up then your name will always be an acceptable Roman name.</p>
-        <p style="text-align:right">If, after reading the wiki page, you still don't understand Roman Naming Conventions, please contact the <a href="mailto:censores@imperivm-romanvm.com" style="background-color:initial; color:var(--brand-color2)">censores</a></p>
+        <p style="text-align:left">If, after reading the wiki page, you still don't understand Roman Naming Conventions, please contact the <a href="mailto:censores@imperivm-romanvm.com" style="background-color:initial; color:var(--brand-color2)">censores</a></p>
         <p style="text-align:center"><a href="https://wiki.imperivm-romanvm.com/wiki/Roman_Name" style="background-color:initial; color:var(--brand-color2)">Wiki Page on Roman Names</a></p>
     </div>
 </section>
