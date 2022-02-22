@@ -28,4 +28,10 @@
         <h4 class="subtitle is-4" style="text-align:left">My country is not in the accepted list, what should I do?</h4>
         <p style="text-align:center">If your country is not in the list please contact the censors <bold>AND</bold> the senators to inform them of such sometimes such happens and we cannot avoid the problem. We are currently acceepting applications in over 100 countries across the globe.</p>
     </div>
+    <div id="our-sections" class="jumbotron">
+        <h4 class="subtitle is-4" style="text-align:left">I don't understand Roman Names</h4>
+        <p style="text-align:center">If you don't understand Roman Naming Conventions, then good news! We have a wiki page dedicated to Roman Naming and we even have a list of all the names a civis can use in their name listed there (all 9 million of them!) However, if you use the form to sign up then your name will always be an acceptable Roman name.</p>
+        <p style="text-align:right">If, after reading the wiki page, you still don't understand Roman Naming Conventions, please contact the <a href="mailto:censores@imperivm-romanvm.com" style="background-color:initial; color:var(--brand-color2)">>censores</a></p>
+        <p style="text-align:center"><a href="https://wiki.imperivm-romanvm.com/wiki/Roman_Name" style="background-color:initial; color:var(--brand-color2)">Wiki Page on Roman Names</a></p>
+    </div>
 </section>
