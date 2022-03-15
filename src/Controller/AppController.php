@@ -41,8 +41,12 @@ class AppController extends Controller
     {
         parent::initialize();
 
+
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        $this->viewBuilder()
+        ->addHelper('Froala.Froala');
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.

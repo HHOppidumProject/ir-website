@@ -14,6 +14,9 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220454706-1">
     </script>
+    <?php if (isset($isLoggedIn) && $isLoggedIn) { ?>
+    <?= $this->Froala->plugin();?>
+    <?php } ?>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -208,5 +211,20 @@
 </body>
 
 <?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
+<?php if (isset($isLoggedIn) && $isLoggedIn) { ?>
+<?= $this->Froala->editor('section:not(#header)', array(
+    'toolbarInline' => true,
+    'charCounterCount' => false,
+    'toolbarVisibleWithoutSelection' => true,
+    'saveInterval' => 2500,
+    'saveParam' => 'content',
+    'saveURL' => $this->Url->build('/save', ['fullBase' => true]),
+    'saveMethod' => 'POST',
+    'requestHeaders' => array(
+        'X-CSRF-TOKEN' => $this->request->getAttribute('csrfToken')
+    )
+    )
+    ); ?>
+<?php } ?>
 
 </html>

@@ -361,6 +361,14 @@ return [
      * Configures logging options
      */
     'Log' => [
+        'test' => [
+            'className' => FileLog::class,
+            'path' => LOGS,
+            'file' => 'test',
+            'url' => env('LOG_DEBUG_URL', null),
+            'scopes' => false,
+            'levels' => ['test'],
+        ],
         'debug' => [
             'className' => FileLog::class,
             'path' => LOGS,

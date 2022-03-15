@@ -15,6 +15,9 @@ $this->assign('title', 'Home')
  * @var \App\View\AppView $this
  */
 ?>
+
+
+
 <section id="intro" class="wrapper style-1">
     <div class="title" style="color: white;">Our Community</div>
     <div class="container">
@@ -154,3 +157,4 @@ $this->assign('title', 'Home')
         $('#cardImageFeatured2').height(width);
     })
 </script>
+

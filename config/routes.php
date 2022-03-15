@@ -54,8 +54,11 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/faq/*', ['controller' => 'Pages', 'action' => 'faq']);
         $builder->connect('/donate/*', ['controller' => 'Pages', 'action' => 'donate']);
         $builder->connect('/cives/success/*', ['controller' => 'Cives', 'action' => 'success']);
+        $builder->connect('/login/*', ['controller' => 'Cives', 'action' => 'login']);
+        $builder->connect('/signup/*', ['controller' => 'Cives', 'action' => 'signup']);
         $builder->connect('/sitemap', ['controller' => 'Sitemap', 'action' => 'index']);
         $builder->connect('/sitemap.xml', ['controller' => 'Sitemap', 'action' => 'index']);
+        $builder->connect('/save', ['controller' => 'Save', 'action' => 'index']);
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
