@@ -14,7 +14,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220454706-1">
     </script>
-    <?php if (isset($isLoggedIn) && $isLoggedIn) { ?>
+    <?php if (isset($isLoggedIn) && $isLoggedIn && isset($canEdit) && $canEdit) { ?>
     <?= $this->Froala->plugin();?>
     <?php } ?>
     <script>
@@ -212,7 +212,7 @@
 </body>
 
 <?= $this->Html->script(['jquery.dropotron.min.js', 'browser.min.js', 'breakpoints.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js', 'layoutUtils.js', 'layout.js']) ?>
-<?php if (isset($isLoggedIn) && $isLoggedIn) { ?>
+<?php if (isset($isLoggedIn) && $isLoggedIn && isset($canEdit) && $canEdit) { ?>
 <?= $this->Froala->editor('section:not(#header)', array(
     'toolbarInline' => true,
     'charCounterCount' => false,

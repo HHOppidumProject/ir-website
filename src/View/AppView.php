@@ -48,22 +48,29 @@ class AppView extends View
         if ($cookies->has('ID') && $cookies->has('abxyzh') && $cookies->has('EMAIL')) {
             $locator = $this->getTableLocator();
             $Cives = $locator->get('Cives');
+            $CivilServiceRecord = $locator->get('CivilServiceRecord');
             try {
                 $civis = $Cives->findByIdAndEmailAndPassword($cookies->get('ID')->getValue(), $cookies->get('EMAIL')->getValue(), $cookies->get('abxyzh')->getValue())->firstOrFail();
                 if (!$civis->getErrors()) {
                     $this->set('isLoggedIn', true);
                     $this->set('loggedInCivis', $civis);
+                    try {
+                        $ServiceRecord = $CivilServiceRecord->findByCivisId($civis["CIVISID"])->order(['DATESTART' => 'DESC'])->firstOrFail();
+                        if ($ServiceRecord["Service"] < 4) {
+                            $this->set('canEdit', true);
+                        }
+                    } catch (mixed | RecordNotFoundException $e) {
+                        $this->set('canEdit', false);
+                    }
                 } else {
-                    $this->Flash->set('Cookies are set incorrectly. Did you tamper with them or is this an error?');
-                    $this->Flash->render();
                     $this->set('isLoggedIn', false);
                     $this->set('loggedInCivis', null);
+                    $this->set('canEdit', false);
                 }
             } catch (mixed | RecordNotFoundException $e) {
-                $this->Flash->set('Cookies are set incorrectly. Did you tamper with them or is this an error?');
-                $this->Flash->render();
                 $this->set('isLoggedIn', false);
                 $this->set('loggedInCivis', null);
+                $this->set('canEdit', false);
             }
         }
     }
