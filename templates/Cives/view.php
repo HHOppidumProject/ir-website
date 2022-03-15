@@ -50,7 +50,7 @@ echo $this->Paginator->meta();
                                         height: $('#passport').innerHeight(),
                                         margin: 0,
                                         type: "png",
-                                        data: "data:text/html,<!DOCTYPE html><html><head><title><? echo h($nameString); ?></title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css><link rel=stylesheet href=https://www.imperivm-romanvm.com/css/style.css><link rel=stylesheet href=https://www.imperivm-romanvm.com/css/main.css></head><body><section class='style3'><div><h1 class='title is-1 has-text-centered'><?= h($nameString); ?></h1></div><div id='our-sections' class='column' style='padding:1rem'><div class='column'><h3 class='subtitle is-4' style='color:white!important'>About</h3><div><p>ID:<?= h($civis->CIVISID) ?></p></div><div><p>Nomen:Quintus Aelius Volusus</p></div><div><p>Shorthand:<?= h($shrtNameString); ?></p></div><div><p>Status:<?= (time() - (60 * 60 * 24 * 365)) < strtotime($civis->cives_priv->LAST_PAID_TAX) ? 'Active/Has paid tax' : 'Inactive/Tax due'; ?></p></div><div><p>Gens:<?= h($civis->nomina->GENS); ?></p></div><div><p>Citizen since:<?= h($civis->DATEJOINED->format('Y-m-d')); ?></p></div><div><p>Order:<?= h($civis->ISPATRICIAN ? 'Patrician' : 'Plebian'); ?></p></div><div><p>Provincia:<?= h($civis->cives_priv->state_to_provincium->provincium->PROVINCENAME); ?></p></div><div><p>Date of Birth:<?= h($civis->DOB); ?></p></div><div><p>Phone Number:<?= h($civis->cives_priv->PHONE_NUMBER) ?></p></div><!-- Custom UID 2: <?php $prev = '';foreach (str_split($civis->__toString()) as $char) {$prev = hash('sha256', $prev . $char);}echo $prev; ?>--></div></section></body></html>",
+                                        data: "data:text/html,<!DOCTYPE html><html><head><title><? echo h($nameString); ?></title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css><link rel=stylesheet href=https://www.imperivm-romanvm.com/css/style.css><link rel=stylesheet href=https://www.imperivm-romanvm.com/css/main.css></head><body><section class='style3'><div><h1 class='title is-1 has-text-centered'><?= h($nameString); ?></h1></div><div id='our-sections' class='column' style='padding:1rem'><div class='column'><h3 class='subtitle is-4' style='color:white!important'>About</h3><div><p>ID:<?= h($civis->CIVISID) ?></p></div><div><p>Nomen:<?=h($nameString)?></p></div><div><p>Shorthand:<?= h($shrtNameString); ?></p></div><div><p>Status:<?= (time() - (60 * 60 * 24 * 365)) < strtotime($civis->cives_priv->LAST_PAID_TAX) ? 'Active/Has paid tax' : 'Inactive/Tax due'; ?></p></div><div><p>Gens:<?= h($civis->nomina->GENS); ?></p></div><div><p>Citizen since:<?= h($civis->DATEJOINED->format('Y-m-d')); ?></p></div><div><p>Order:<?= h($civis->ISPATRICIAN ? 'Patrician' : 'Plebian'); ?></p></div><div><p>Provincia:<?= h($civis->cives_priv->state_to_provincium->provincium->PROVINCENAME); ?></p></div><div><p>Date of Birth:<?= h($civis->DOB); ?></p></div><div><p>Phone Number:<?= h($civis->cives_priv->PHONE_NUMBER) ?></p></div><!-- Custom UID 2: <?php $prev = '';foreach (str_split($civis->__toString()) as $char) {$prev = hash('sha256', $prev . $char);}echo $prev; ?>--></div></section></body></html>",
                                         image: "/img/wiki.png",
                                         dotsOptions: {
                                             color: "#66023c",
@@ -86,15 +86,13 @@ echo $this->Paginator->meta();
 
     <div class="column scroll" style="height: 15vh; max-height:15vh">
         <h3 class="subtitle is-4" style="color: white !important">CIVIL SERVICE RECORD</h3>
-        <div class="placeholder">
-            <p>Coming Soon!</p>
-        </div>
-        <div class="placeholder">
-        </div>
-        <div class="placeholder">
-        </div>
-        <div class="placeholder">
-        </div>
+        <?php
+            foreach($serviceRecord as $i){
+                echo '<div style="text-align: center" class="placeholder">
+                <h4>'. $i['civil_service']['SERVICENAME'] .'</h4>
+                <h5>'. $i['DATESTART'] . ' - ' . $i['DATEEND'] .'<h5>
+                </div>';
+            }?>
     </div>
     <div class="has-text-centered">
         <?php
