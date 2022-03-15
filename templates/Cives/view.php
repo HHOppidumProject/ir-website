@@ -86,15 +86,13 @@ echo $this->Paginator->meta();
 
     <div class="column scroll" style="height: 15vh; max-height:15vh">
         <h3 class="subtitle is-4" style="color: white !important">CIVIL SERVICE RECORD</h3>
-        <div class="placeholder">
-            <p>Coming Soon!</p>
-        </div>
-        <div class="placeholder">
-        </div>
-        <div class="placeholder">
-        </div>
-        <div class="placeholder">
-        </div>
+        <?php
+            foreach($serviceRecord as $i){
+                echo '<div style="text-align: center" class="placeholder">
+                <h4>'. $i['civil_service']['SERVICENAME'] .'</h4>
+                <h5>'. $i['DATESTART'] . ' - ' . $i['DATEEND'] .'<h5>
+                </div>';
+            }?>
     </div>
     <div class="has-text-centered">
         <?php

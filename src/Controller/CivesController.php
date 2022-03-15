@@ -41,6 +41,8 @@ class CivesController extends AppController
                 'Provincia'
             ]
         ]])->firstOrFail();
+        $serviceRecord = $this->getTableLocator()->get('CivilServiceRecord')->findByCivisId($id)->contain(['CivilServices'])->order(['DATESTART' => 'DESC'])->all();
+        $this->set(compact('serviceRecord'));
         $this->set(compact('civis'));
     }
 
