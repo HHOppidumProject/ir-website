@@ -46,14 +46,14 @@ $this->assign('title', 'Home')
                     </figure>
                 </div>
                 <div class="card-content">
+                    <div class="media">
+                        <p style="font-size: 0.4em"><?= $this->Html->link('Maierstrom.org', 'https://maierstorm.org/Vampire/images/f/ff/Alter_of_the_Twelve_Gods.jpg'); ?></p>
+                    </div>
                     <header class="card-header">
                         <p class="card-header-title">
                             Roman Religion
                         </p>
                     </header>
-                    <div class="media">
-                        <p>image sourced from <?= $this->Html->link('Maierstrom.org', 'https://maierstorm.org/Vampire/images/f/ff/Alter_of_the_Twelve_Gods.jpg'); ?></p>
-                    </div>
 
                     <div class="content">
                         The Roman polytheistic religion is a key source of why we do what we do and is integrally tied to all of our endeavors as a community. We as a community have promoted tolerance and accepted Abrahamics, Atheists, and Pagans alike.
@@ -71,14 +71,14 @@ $this->assign('title', 'Home')
                     </figure>
                 </div>
                 <div class="card-content">
+                    <div class="media">
+                        <p style="font-size: 0.4em"><?= $this->Html->link('wikimedia.org', 'https://commons.wikimedia.org/wiki/File:Pompeii_family_feast_painting_Naples.jpg'); ?> </p>
+                    </div>
                     <header class="card-header">
                         <p class="card-header-title">
                             Roman Culture
                         </p>
                     </header>
-                    <div class="media">
-                        <p> image sourced from <?= $this->Html->link('wikimedia.org', 'https://commons.wikimedia.org/wiki/File:Pompeii_family_feast_painting_Naples.jpg'); ?> </p>
-                    </div>
 
                     <div class="content">
                         Imperivm Romanvm strives to resurrect the cultural traditions and identity of the Romans from the foundations attributed to Romulus to the final days in the epoch of Byzantium.
@@ -98,14 +98,14 @@ $this->assign('title', 'Home')
                     </figure>
                 </div>
                 <div class="card-content">
+                    <div class="media">
+                        <p style="font-size: 0.4em"> <?= $this->Html->link('wikimedia.org', 'https://commons.wikimedia.org/wiki/File:Cicer%C3%B3n_denuncia_a_Catilina,_por_Cesare_Maccari.jpg'); ?> </p>
+                    </div>
                     <header class="card-header">
                         <p class="card-header-title">
                             Romanitas and You
                         </p>
                     </header>
-                    <div class="media">
-                        <p> image sourced from <?= $this->Html->link('wikimedia.org', 'https://commons.wikimedia.org/wiki/File:Cicer%C3%B3n_denuncia_a_Catilina,_por_Cesare_Maccari.jpg'); ?> </p>
-                    </div>
 
                     <div class="content">
                         There are many paths to living life as a modern Roman, but all of them require action and an openness to fellowship. It is a rewarding experience which enriches the ethical and spiritual life of individuals. A means of not only adjusting to the problems of the modern world, but offering an alternative to many of today's trends and norms.

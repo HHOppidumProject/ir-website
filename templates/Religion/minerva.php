@@ -1,9 +1,4 @@
-<?php
-
-/**
- * @var Laminas\View\Renderer\PhpRenderer $this
- */
-?>
+<?php $this->assign('title', 'Religion - Minerva'); ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Minerva</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/minerva.jpg"/>

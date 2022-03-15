@@ -18,6 +18,7 @@ class CivesTable extends UsersTable
         $this->belongsTo('Cognomina')->setForeignKey("COGNOMEN")->setJoinType('INNER');
         $this->belongsTo('Nomina')->setForeignKey("NOMEN")->setJoinType('INNER');
         $this->belongsTo('Praenomina')->setForeignKey("PRAENOMEN")->setJoinType('INNER');
+        $this->belongsToMany('CivilServices');
     }
 
     public function validationDefault(Validator $validator): Validator

@@ -1,9 +1,4 @@
-<?php
-
-/**
- * @var Laminas\View\Renderer\PhpRenderer $this
- */
-?>
+<?php $this->assign('title', 'Religion - Jupiter'); ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Jupiter</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/jupiter.jpeg"/>
@@ -13,6 +8,12 @@
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
         <h2>Background</h2>
         <p>If every man gives heed to a god, every god gives heed to Jupiter. Otherwise known as Jove (also called Zeus in Greek), Jupiter is the supreme ruler of the cosmos and lord of the Olympians. He is the God of Thunder, Sky, and Sovereign Authority, ruling humans and deities alike from his celestial throne.</p>
+    </div>
+
+    <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
+        <h2>History</h2>
+        <p>The worship of Jupiter in his earliest incarnation was found among the Proto-Indo-Europeans, who called him ‘Dyeus Pitar’, or ‘Daylight Sky-Father’. His worship would spread across various regions in Europe, with his name developing into ‘Dios’ or ‘Zeus’ among the Greeks, and 'Diespiter’ or ‘Jupiter’ among the Italian peoples.</p>
+        <p>A common misconception is that the Ancient Romans simply adopted the Greek Pantheon and changed the names, but this is false. The Romans already had a host of deities to worship, and many of them shared the same origin as Greek deities. It was only natural that the Romans saw their Jupiter in the Grecian Zeus.</p>
     </div>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">

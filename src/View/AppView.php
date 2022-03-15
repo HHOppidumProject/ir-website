@@ -54,12 +54,16 @@ class AppView extends View
                     $this->set('isLoggedIn', true);
                     $this->set('loggedInCivis', $civis);
                 } else {
-                    $this->Flash->set('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                    $this->Flash->set('Cookies are set incorrectly. Did you tamper with them or is this an error?');
                     $this->Flash->render();
+                    $this->set('isLoggedIn', false);
+                    $this->set('loggedInCivis', null);
                 }
             } catch (mixed | RecordNotFoundException $e) {
-                $this->Flash->set('Cookies are set incorrectly. Did you tamper them or is this an error?');
+                $this->Flash->set('Cookies are set incorrectly. Did you tamper with them or is this an error?');
                 $this->Flash->render();
+                $this->set('isLoggedIn', false);
+                $this->set('loggedInCivis', null);
             }
         }
     }

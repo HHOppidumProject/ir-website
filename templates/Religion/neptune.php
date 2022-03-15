@@ -1,9 +1,4 @@
-<?php
-
-/**
- * @var Laminas\View\Renderer\PhpRenderer $this
- */
-?>
+<?php $this->assign('title', 'Religion - Neptune'); ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title is-1" style="color:var(--brand-color2) !important">Neptune</h1>
     <img class="image is-fullwidth" style="border: none;" src="/img/neptune.jpg"/>
@@ -16,7 +11,7 @@
     </div>
 
     <div id="our-sections" class="jumbotron" style="text-align:right; margin-top:4rem;">
-        <h2>Origin</h2>
+        <h2>History</h2>
         <p>Scholars heavily debate the origins of Neptune. It is generally accepted he was initially revered as some type of water divinity, but in what context is unclear. If he is Proto-Indo-European, he is unlikely to have an oceanic domain, as the Proto-Indo-Europeans had little knowledge of the sea. Speculations about his original form include a role primarily as a fertility god, a weather deity, an agriculture god, a river god, the list goes on. Etymologies broadly list his name as deriving from a Proto-Indo-European root meaning 'to dampen', but even this is highly contested.</p>
         <p>His Greek variant Poseidon is equally perplexing. He appears to lack a cognate among the Proto-Indo-Europeans in both function and etymology. No convincing explanation of his place of origin has been offered, with speculations dotting the map of the Hellenistic world. Regardless of his beginnings, his arrival in Italy achieved popularity by becoming syncretized with the indigenous Neptune, giving Neptune a newfound prominence among the Roman people.</p>
     </div>

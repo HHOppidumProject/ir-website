@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Join the Imperivm'); ?>
 <section id="highlights" class="wrapper style3">
     <?php if (!$isSuccessful) { ?>
         <h2 class="title is-2">Sign Up</h2>
@@ -69,7 +70,7 @@
             foreach ($countryArray as $country) :
                 $countryValueArray[$country["id"]] = $country["countryName"];
             endforeach;
-            echo $this->Form->select('cives_priv.StateToProvincia.Countries.COUNTRYID', $countryValueArray, ['id' => 'country']);
+            echo $this->Form->select('cives_priv.StateToProvincia.Countries.COUNTRYID', $countryValueArray, ['id' => 'country', 'class' => 'selectize']);
 
             echo '<label>State/Province</label>';
 
@@ -89,21 +90,21 @@
             foreach ($praenomenArray as $praenomen) :
                 $maleArrayPraenomina[$praenomen["id"]] = $praenomen["male"];
             endforeach;
-            echo $this->Form->select('praenomina.PRAENOMEN', $maleArrayPraenomina, ['id' => 'praenomen']);
+            echo $this->Form->select('praenomina.PRAENOMEN', $maleArrayPraenomina, ['id' => 'praenomen', 'class' => 'selectize']);
 
             echo '<label>Nomen</label>';
             $maleArrayNomina = [];
             foreach ($nomenArray as $nomen) :
                 $maleArrayNomina[$nomen["id"]] = $nomen["male"];
             endforeach;
-            echo $this->Form->select('nomina.NOMEN', $maleArrayNomina, ['id' => 'nomen']);
+            echo $this->Form->select('nomina.NOMEN', $maleArrayNomina, ['id' => 'nomen', 'class' => 'selectize']);
 
             echo '<label>Cognomen</label>';
             $maleArrayCognomina = [];
             foreach ($cognomenArray as $cognomen) :
                 $maleArrayCognomina[$cognomen["id"]] = $cognomen["male"];
             endforeach;
-            echo $this->Form->select('cognomina.COGNOMEN', $maleArrayCognomina, ['id' => 'cognomen']);
+            echo $this->Form->select('cognomina.COGNOMEN', $maleArrayCognomina, ['id' => 'cognomen', 'class' => 'selectize']);
 
             echo $this->Form->button('submit', ['type' => 'submit', 'class' => 'btn btn-primary', 'style' => 'padding: 1em; margin: 1em;']);
             ?>
@@ -184,6 +185,10 @@
                     });
                 });
 
+                $(".selectize").selectize({
+                    sortField: 'text'
+                });
+
                 $('#preferredWordGender').change(function() {
                     if (parseInt($(this).val()) === 1) {
                         $("#praenomen").empty();
@@ -236,4 +241,5 @@
     <?php } ?>
 </section>
 
-<?= $this->Html->css(['intlTelInput.css', 'signup.css']) ?>
+<?= $this->Html->css(['intlTelInput.css', 'signup.css', 'https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css']) ?>
+<?= $this->Html->script(['https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js',]) ?>

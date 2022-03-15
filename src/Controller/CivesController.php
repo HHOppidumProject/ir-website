@@ -41,6 +41,8 @@ class CivesController extends AppController
                 'Provincia'
             ]
         ]])->firstOrFail();
+        $serviceRecord = $this->getTableLocator()->get('CivilServiceRecord')->findByCivisId($id)->contain(['CivilServices'])->order(['DATESTART' => 'DESC'])->all();
+        $this->set(compact('serviceRecord'));
         $this->set(compact('civis'));
     }
 
@@ -144,7 +146,7 @@ class CivesController extends AppController
                         if (in_array($civis->GENDER, ['male', 'female', 'agender', 'gender fluid', 'gender-fluid', 'genderfluid', 'intersex', 'transgender', 'trans-gender'])) {
                             if ($this->Cives->save($civis)) {
                                 $isSuccessful = true;
-                                $this->redirect(['controller' => 'Cives', 'action' => 'success', $civis->CIVISID, $civis->EMAIL, $civis->DOB, $civis->PASSWORDHASH]);
+                                $this->redirect(['action' => 'success', '?' => ['id' => $civis->CIVISID, 'email' => $civis->EMAIL, 'dob' => $civis->DOB, 'passwordhash' => $civis->PASSWORDHASH]]);
                             } else {
                                 $mailer = new Mailer('default');
                                 $mailer->setTo('senatores@imperivm-romanvm.com')
@@ -179,9 +181,12 @@ class CivesController extends AppController
         }
     }
 
-    public function success($id, $email, $DOB, $PASSWORDHASH)
+    public function success()
     {
-        if (empty($id) || empty($email) || empty($DOB) || empty($PASSWORDHASH)) {
+        $id = $this->request->getQuery('id');
+        $email = $this->request->getQuery('email');
+        $PASSWORDHASH = $this->request->getQuery('passwordhash');
+        if (empty($id) || empty($email) || empty($PASSWORDHASH)) {
             $this->redirect(['action' => 'login']);
         }
         $this->viewBuilder()->setLayout('default');

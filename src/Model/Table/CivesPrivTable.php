@@ -19,7 +19,6 @@ class CivesPrivTable extends Table
         $validator
             ->notEmptyString('FORENAME')
             ->notEmptyString('SURNAME')
-            ->notEmptyString('ADDRESS')
             ->notEmptyString('CITY')
             ->nonNegativeInteger('STATE_PROVINCE')
             ->integer("STATE_PROVINCE", "Something went wrong!")

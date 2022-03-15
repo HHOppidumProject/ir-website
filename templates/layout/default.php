@@ -11,9 +11,23 @@
 <head>
     <meta charset="utf-8">
     <title>The Imperivm Romanvm - <?= h($this->fetch('title')) ?></title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-220454706-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-220454706-1');
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Imperivm Romanvm, Imperivm, Romanvm, IR, Roman Empire, Rome, Ancient Rome, roman numerals, stoicism, religio romana, Roman Republic, Res Publica Romana, roman gods, roman dating, roman calendar, Hellenism, Roman Reconstructionism, Roman Revivalism, Nova Roma, Byzantium, Byzantium Novum">
     <link rel="shortcut icon" type="image/vnd.microsoft/icon" href="/favicon.ico" />
     <?= $this->Html->css(["https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css", "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css", 'main.css', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css', 'style.css']) ?>
     <?= $this->Html->script(['https://code.jquery.com/jquery-3.5.1.min.js', 'https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js']) ?>
@@ -148,7 +162,7 @@
                                 <section>
                                     <h3 class="icon solid fa-comment">Social</h3>
                                     <p>
-                                        <a href="https://www.instagram.com/imperivmromanum">@imperivmromanum</a><br />
+                                        <a href="https://www.instagram.com/officialromanvm">@imperivmromanum</a><br />
                                         <a href="https://www.reddit.com/r/RomaTertia/">r/RomaTertia</a><br />
                                         <a href="https://discord.gg/TPCs2FKnKA">Imperivm Romanvm Discord Server</a>
                                     </p>
@@ -181,7 +195,7 @@
             <div id="copyright">
                 <ul>
                     <li>&copy; <?= date('Y') ?> <a href="/">Imperivm Romanvm</a>.</li>
-                    <li><a href="https://www.instagram.com/imperivmromanum"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.instagram.com/officialromanvm"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.reddit.com/r/RomaTertia/"><i class="fab fa-reddit"></i></a></li>
                     <li><a href="https://twitter.com/OfficialRomanvm"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="https://discord.gg/TPCs2FKnKA"><i class="fab fa-discord"></i></a></li>
