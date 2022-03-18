@@ -51,7 +51,7 @@ class PagesControllerTest extends TestCase
     {
         $this->get('/pages/home');
         $this->assertResponseOk();
-        $this->assertResponseContains('CakePHP');
+        $this->assertResponseContains('Imperivm Romanvm');
         $this->assertResponseContains('<html>');
     }
 
@@ -121,6 +121,6 @@ class PagesControllerTest extends TestCase
         $this->post('/pages/home', ['hello' => 'world']);
 
         $this->assertResponseCode(200);
-        $this->assertResponseContains('CakePHP');
+        $this->assertResponseContains('Imperivm Romanvm');
     }
 }
