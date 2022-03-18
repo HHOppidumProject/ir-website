@@ -40,7 +40,7 @@ jobs:
     - name: Run PHPUnit
       run: |
         cp config/app_local.example.php config/app_local.php
-        vendor/bin/phpunit
+        vendor/bin/phpunit --verbose
       env:
         DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
