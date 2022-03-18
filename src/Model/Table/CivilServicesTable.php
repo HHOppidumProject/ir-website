@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
@@ -10,6 +12,6 @@ class CivilServicesTable extends Table
     {
         $this->setTable('Civil_Services');
         $this->setPrimaryKey('SERVICEID');
-        $this->belongsToMany('Cives');
+        $this->belongsToMany('Cives', ['through' => 'CivilServiceRecord']);
     }
 }

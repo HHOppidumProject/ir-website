@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
@@ -10,6 +12,6 @@ class NominaTable extends Table
     {
         $this->setTable('Nomina');
         $this->setPrimaryKey('NOMENID');
-        $this->belongsTo('CIVES');
+        $this->belongsTo('Cives');
     }
 }

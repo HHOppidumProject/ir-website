@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
@@ -10,7 +12,8 @@ class StateToProvinciaTable extends Table
     {
         $this->setTable('State_To_Provincia');
         $this->setPrimaryKey('STATEID');
-        $this->belongsTo('Countries')->setForeignKey("COUNTRY")->setJoinType('INNER');;
-        $this->belongsTo('Provincia')->setForeignKey("PROVINCIA")->setJoinType('INNER');;
+        $this->belongsTo('Countries')->setForeignKey('COUNTRY')->setJoinType('INNER');
+
+        $this->belongsTo('Provincia')->setForeignKey('PROVINCIA')->setJoinType('INNER');
     }
 }

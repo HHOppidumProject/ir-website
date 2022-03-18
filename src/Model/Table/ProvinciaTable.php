@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
@@ -10,6 +12,6 @@ class ProvinciaTable extends Table
     {
         $this->setTable('Provincia');
         $this->setPrimaryKey('PROVINCIAID');
-        $this->belongsTo('STATE_TO_PROVINCIA');
+        $this->hasMany('StateToProvincia')->setForeignKey('PROVINCIA');
     }
 }

@@ -1,18 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller;
 
-use Cake\Mailer\Mailer;
 use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Http\Cookie\Cookie;
 use Cake\Http\Cookie\CookieCollection;
+use Cake\Mailer\Mailer;
 use DateTime;
 
 class CivesController extends AppController
 {
-
     public $paginate = [
-        'limit' => 25
+        'limit' => 25,
     ];
 
     public function index()
@@ -23,7 +23,8 @@ class CivesController extends AppController
         $this->set(compact('cives'));
     }
 
-    public function logout(){
+    public function logout()
+    {
         $cookies = $this->request->getCookieCollection();
         if ($cookies->has('ID') && $cookies->has('abxyzh') && $cookies->has('EMAIL')) {
             $this->response = $this->response->withExpiredCookie(new Cookie('ID'));
@@ -38,10 +39,14 @@ class CivesController extends AppController
         $this->viewBuilder()->setLayout('default');
         $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
             'StateToProvincia' => [
-                'Provincia'
-            ]
+                'Provincia',
+            ],
         ]])->firstOrFail();
-        $serviceRecord = $this->getTableLocator()->get('CivilServiceRecord')->findByCivisId($id)->contain(['CivilServices'])->order(['DATESTART' => 'DESC'])->all();
+        $serviceRecord = $this->getTableLocator()
+                            ->get('CivilServiceRecord')
+                            ->findByCivisId($id)
+                            ->contain(['CivilServices'])
+                            ->order(['DATESTART' => 'DESC'])->all();
         $this->set(compact('serviceRecord'));
         $this->set(compact('civis'));
     }
@@ -51,8 +56,8 @@ class CivesController extends AppController
         $this->viewBuilder()->setLayout('default');
         $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
             'StateToProvincia' => [
-                'Provincia'
-            ]
+                'Provincia',
+            ],
         ]])->firstOrFail();
         $this->set(compact('civis'));
     }
@@ -72,7 +77,7 @@ class CivesController extends AppController
                         $prev = hash('sha256', $prev . $char);
                     }
                     $civis = $this->Cives->findByEmailAndPassword(strtolower($data['EMAIL']), $prev)->firstOrFail();
-                    if(!$civis->getErrors()){
+                    if (!$civis->getErrors()) {
                         //TODO Implement remember me, css stopping it at the mo.
                         $this->response = $this->response->withCookieCollection(new CookieCollection([
                             new Cookie(
@@ -80,6 +85,7 @@ class CivesController extends AppController
                                 $civis->CIVISID,
                                 new DateTime('+1 day'),
                                 '/',
+                                null,
                                 false,
                                 false
                             ),
@@ -88,6 +94,7 @@ class CivesController extends AppController
                                 $civis->PASSWORDHASH,
                                 new DateTime('+1 day'),
                                 '/',
+                                null,
                                 false,
                                 false
                             ),
@@ -96,6 +103,7 @@ class CivesController extends AppController
                                 $civis->EMAIL,
                                 new DateTime('+1 day'),
                                 '/',
+                                null,
                                 false,
                                 false
                             ),
@@ -131,7 +139,7 @@ class CivesController extends AppController
                 ]]);
                 if ($civis->getErrors()) {
                     $this->Flash->error('The user has not been saved.', [
-                        'element' => 'fail'
+                        'element' => 'fail',
                     ]);
                 } else {
                     $civis->GENDER = strtolower($civis->GENDER);
@@ -140,7 +148,7 @@ class CivesController extends AppController
                         $prev = hash('sha256', $prev . $char);
                     }
                     $civis->PASSWORDHASH = $prev;
-                    $civis->CIVISID = hash('sha256', substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(256 / strlen($x)))), 1, 256));
+                    $civis->CIVISID = hash('sha256', substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', intval(ceil(256 / strlen($x))))), 1, 256));
                     $civis->EMAIL = strtolower($civis->EMAIL);
                     if (!$civis->DOB->wasWithinLast('15 years')) {
                         if (in_array($civis->GENDER, ['male', 'female', 'agender', 'gender fluid', 'gender-fluid', 'genderfluid', 'intersex', 'transgender', 'trans-gender'])) {
@@ -192,8 +200,8 @@ class CivesController extends AppController
         $this->viewBuilder()->setLayout('default');
         $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
             'StateToProvincia' => [
-                'Provincia'
-            ]
+                'Provincia',
+            ],
         ]])->firstOrFail();
         $mailer = new Mailer('default');
         $mailer->setTo($civis->EMAIL)
@@ -202,11 +210,11 @@ class CivesController extends AppController
             ->addBcc('consules@imperivm-romanvm.com')
             ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
             ->deliver("Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n" .
-                "CIVISID: " . $civis->CIVISID .
+                'CIVISID: ' . $civis->CIVISID .
                 "\nPraenomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
                 "\nNomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
                 "\nCognomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
-                "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? "Female" : "Male") .
+                "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
                 "\nGender: " . $civis->GENDER .
                 "\nEmail: " . $civis->EMAIL .
                 "\nDate of Birth: " . $civis->DOB .
@@ -223,7 +231,8 @@ class CivesController extends AppController
         $this->set(compact('civis'));
     }
 
-    public function faq(){
+    public function faq()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 }

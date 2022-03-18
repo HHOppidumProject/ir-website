@@ -71,11 +71,13 @@ class PagesController extends AppController
         }
     }
 
-    public function faq(){
+    public function faq()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function donate(){
+    public function donate()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 }

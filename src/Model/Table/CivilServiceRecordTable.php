@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
-use Cake\ORM\Table;
 use Cake\ORM\Query;
+use Cake\ORM\Table;
 
 class CivilServiceRecordTable extends Table
 {
@@ -15,9 +17,10 @@ class CivilServiceRecordTable extends Table
         $this->belongsTo('CivilServices')->setForeignKey('SERVICE');
     }
 
-    public function findByCivisId(string $civisid) : Query {
+    public function findByCivisId(string $civisid): Query
+    {
         return $this->find('all', [
-            'conditions' => ['CIVIS' => $civisid]
+            'conditions' => ['CIVIS' => $civisid],
         ]);
     }
 }

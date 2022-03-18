@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 /**
@@ -17,9 +16,9 @@ declare(strict_types=1);
 
 namespace App\View;
 
-use Cake\View\View;
-use Cake\ORM\Locator\LocatorAwareTrait;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\ORM\Locator\LocatorAwareTrait;
+use Cake\View\View;
 
 /**
  * Application View
@@ -30,7 +29,6 @@ use Cake\Datasource\Exception\RecordNotFoundException;
  */
 class AppView extends View
 {
-
     use LocatorAwareTrait;
 
     /**

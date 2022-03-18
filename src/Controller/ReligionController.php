@@ -1,73 +1,87 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller;
 
 class ReligionController extends AppController
 {
-
     public function index()
     {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function majorMinorGods(){
+    public function majorMinorGods()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function diiConsentes(){
+    public function diiConsentes()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function christianity(){
+    public function christianity()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function jupiter(){
+    public function jupiter()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function juno(){
+    public function juno()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function neptune(){
+    public function neptune()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function minerva(){
+    public function minerva()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function mars(){
+    public function mars()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function venus(){
+    public function venus()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function apollo(){
+    public function apollo()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function diana(){
-        $this->viewBuilder()->setLayout('default');
-    }
-    
-    public function vulcan(){
+    public function diana()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function vesta(){
+    public function vulcan()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function mercury(){
+    public function vesta()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
-    public function ceres(){
+    public function mercury()
+    {
         $this->viewBuilder()->setLayout('default');
     }
 
+    public function ceres()
+    {
+        $this->viewBuilder()->setLayout('default');
+    }
 }

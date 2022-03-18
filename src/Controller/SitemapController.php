@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -11,7 +12,7 @@ class SitemapController extends AppController
     {
         $this->viewBuilder()->setLayout('sitemap');
         $this->RequestHandler->respondAs('xml');
-        
+
         $postTbl = TableRegistry::getTableLocator()->get('Cives');
         $posts = $postTbl->find()->select(['CIVISID']);
         $this->set('Cives', $posts);
@@ -19,7 +20,5 @@ class SitemapController extends AppController
         //Get the base URL of your website
         $url = Router::url('/', true);
         $this->set('url', $url);
-
     }
-
-}   
+}

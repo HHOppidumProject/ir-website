@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 // src/Model/Table/ArticlesTable.php
 namespace App\Model\Table;
 
@@ -10,6 +12,6 @@ class PraenominaTable extends Table
     {
         $this->setTable('Praenomina');
         $this->setPrimaryKey('PRAENOMENID');
-        $this->belongsTo('CIVES');
+        $this->belongsTo('Cives');
     }
 }
