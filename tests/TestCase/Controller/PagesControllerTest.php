@@ -52,6 +52,7 @@ class PagesControllerTest extends TestCase
         $this->get('/pages/home');
         $this->assertResponseOk();
         $this->assertResponseContains('Imperivm Romanvm');
+        echo $this->_getBodyAsString();
         $this->assertResponseContains('<html>');
     }
 
