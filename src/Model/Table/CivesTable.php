@@ -74,7 +74,7 @@ class CivesTable extends UsersTable
      * Find a civis by their CIVISID
      *
      * @param string $id - CIVISID of the civis to find
-     * @return /Cake/ORM/Query
+     * @return \Cake\ORM\Query
      */
     public function findById(string $id): Query
     {
@@ -88,7 +88,7 @@ class CivesTable extends UsersTable
      *
      * @param string $email - email to search for
      * @param string $passwordHash - password hash to search for
-     * @return /Cake/ORM/Query
+     * @return \Cake\ORM\Query
      */
     public function findByEmailAndPassword(string $email, string $passwordHash): Query
     {
@@ -103,7 +103,7 @@ class CivesTable extends UsersTable
      * @param string $id - CIVISID of the civis to find
      * @param string $email - email to search for
      * @param string $passwordHash - password hash to search for
-     * @return /Cake/ORM/Query
+     * @return \Cake\ORM\Query
      */
     public function findByIdAndEmailAndPassword(string $id, string $email, string $passwordHash): Query
     {
