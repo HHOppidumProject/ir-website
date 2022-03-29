@@ -257,7 +257,6 @@ return [
         'default' => [
             'transport' => 'default',
             'from' => 'no-reply@imperivm-romanvm.com',
-            
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
              */
@@ -333,18 +332,18 @@ return [
         /*
          * The test connection is used during the test suite.
          */
-        // 'test' => [
-        //     'className' => Connection::class,
-        //     'driver' => Mysql::class,
-        //     'persistent' => false,
-        //     'timezone' => 'UTC',
-        //     //'encoding' => 'utf8mb4',
-        //     'flags' => [],
-        //     'cacheMetadata' => true,
-        //     'quoteIdentifiers' => false,
-        //     'log' => false,
-        //     //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-        // ],
+        'test' => [
+            'className' => Connection::class,
+            'driver' => Mysql::class,
+            'persistent' => false,
+            'timezone' => 'UTC',
+            //'encoding' => 'utf8mb4',
+            'flags' => [],
+            'cacheMetadata' => true,
+            'quoteIdentifiers' => false,
+            'log' => false,
+            //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+        ],
 
         'default' => [
             'className' => 'Cake\Database\Connection',
@@ -353,7 +352,7 @@ return [
             'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
-            'port'  =>  '3306'
+            'port' => '3306',
         ],
     ],
 
