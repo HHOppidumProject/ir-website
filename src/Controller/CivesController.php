@@ -15,6 +15,11 @@ class CivesController extends AppController
         'limit' => 25,
     ];
 
+    /**
+     * Displays Cives Index Page with pagination
+     *
+     * @return void
+     */
     public function index()
     {
         $this->viewBuilder()->setLayout('default');
@@ -23,6 +28,11 @@ class CivesController extends AppController
         $this->set(compact('cives'));
     }
 
+    /**
+     * Logs out the current user and removes the cookies assigned to the user
+     *
+     * @return void
+     */
     public function logout()
     {
         $cookies = $this->request->getCookieCollection();
@@ -34,6 +44,12 @@ class CivesController extends AppController
         $this->redirect($this->referer());
     }
 
+    /**
+     * Displays information on the currently selected civis
+     *
+     * @param string $id -- id (primary key) of civis
+     * @return void
+     */
     public function view($id = null)
     {
         $this->viewBuilder()->setLayout('default');
@@ -51,6 +67,14 @@ class CivesController extends AppController
         $this->set(compact('civis'));
     }
 
+    /**
+     * Edit the currently selected civis
+     *
+     * TODO CREATE PAGE TO EDIT CIVIS
+     *
+     * @param string $id -- id (primary key) of civis
+     * @return void
+     */
     public function edit($id = null)
     {
         $this->viewBuilder()->setLayout('default');
@@ -62,6 +86,13 @@ class CivesController extends AppController
         $this->set(compact('civis'));
     }
 
+    /**
+     * Displays login page form, creates cookies if appropriate and communicates with database
+     *
+     * TODO Move Login logic to SSO and create SSO
+     *
+     * @return void
+     */
     public function login()
     {
         $this->viewBuilder()->setLayout('default');
@@ -117,6 +148,13 @@ class CivesController extends AppController
         }
     }
 
+    /**
+     * Displays signup form and handles signup logic, will also move this to SSO
+     *
+     * TODO MOVE TO SIGNUP LOGIC TO SSO
+     *
+     * @return void
+     */
     public function signup()
     {
         $this->viewBuilder()->setLayout('default');
@@ -189,6 +227,11 @@ class CivesController extends AppController
         }
     }
 
+    /**
+     * Displays successful signup page and send success email
+     *
+     * @return void
+     */
     public function success()
     {
         $id = $this->request->getQuery('id');
@@ -231,6 +274,11 @@ class CivesController extends AppController
         $this->set(compact('civis'));
     }
 
+    /**
+     * Displays Cives Signup FAQ.
+     *
+     * @return void
+     */
     public function faq()
     {
         $this->viewBuilder()->setLayout('default');

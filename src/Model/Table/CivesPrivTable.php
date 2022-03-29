@@ -9,6 +9,12 @@ use Cake\Validation\Validator;
 
 class CivesPrivTable extends Table
 {
+    /**
+     * Sets up table and table relationships
+     *
+     * @param array $config - not needed but kept for inheritence reasons
+     * @return void
+     */
     public function initialize(array $config): void
     {
         $this->setTable('Cives_Priv');
@@ -16,6 +22,19 @@ class CivesPrivTable extends Table
         $this->belongsTo('StateToProvincia')->setForeignKey('STATE_PROVINCE')->setJoinType('INNER');
     }
 
+    /**
+     * Creates table validator:
+     * Forename cannot be empty
+     * Surname cannot be empty
+     * City cannot be empty
+     * State/Province cannot be empty and must be an integer
+     * Phone Number cannot be empty
+     * Postcode/Zip code cannot be empty
+     * Occupation cannot be empty
+     *
+     * @param \Cake\Validation\Validator $validator - not needed but kept for inheritence reasons
+     * @return \Cake\Validation\Validator
+     */
     public function validationDefault(Validator $validator): Validator
     {
         $validator

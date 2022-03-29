@@ -8,6 +8,11 @@ use Cake\Routing\Router;
 
 class SitemapController extends AppController
 {
+    /**
+     * Displays the sitemap
+     *
+     * @return void
+     */
     public function index()
     {
         $this->viewBuilder()->setLayout('sitemap');

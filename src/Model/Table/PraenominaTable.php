@@ -8,6 +8,12 @@ use Cake\ORM\Table;
 
 class PraenominaTable extends Table
 {
+    /**
+     * Sets up table and table relationships
+     *
+     * @param array $config - not needed but kept for inheritence reasons
+     * @return void
+     */
     public function initialize(array $config): void
     {
         $this->setTable('Praenomina');
