@@ -45,7 +45,11 @@ jobs:
         DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
   coding-standard:
-    name: Coding Standard
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['7.3', '7.4', '8.0', '8.1']
+    name: Coding Standard - PHP ${{ matrix.php-version }}
     runs-on: ubuntu-18.04
 
     steps:
@@ -54,7 +58,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.3'
+        php-version: ${{ matrix.php-version }}
         extensions: mbstring, intl
         coverage: none
 
