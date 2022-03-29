@@ -186,19 +186,37 @@ class CivesController extends AppController
                         $prev = hash('sha256', $prev . $char);
                     }
                     $civis->PASSWORDHASH = $prev;
-                    $civis->CIVISID = hash('sha256', substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', intval(ceil(256 / strlen($x))))), 1, 256));
+
+                    $allLettersAndNumbers = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $repeatTimes = intval(ceil(256 / strlen($allLettersAndNumbers)));
+                    $randomString = str_repeat($allLettersAndNumbers, $repeatTimes);
+                    $civis->CIVISID = hash('sha256', substr(str_shuffle($randomString), 1, 256));
+
                     $civis->EMAIL = strtolower($civis->EMAIL);
+                    $acceptedPhraseList = ['male',
+                    'female',
+                    'agender',
+                    'gender fluid',
+                    'gender-fluid',
+                    'genderfluid',
+                    'intersex',
+                    'transgender',
+                    'trans-gender'];
                     if (!$civis->DOB->wasWithinLast('15 years')) {
-                        if (in_array($civis->GENDER, ['male', 'female', 'agender', 'gender fluid', 'gender-fluid', 'genderfluid', 'intersex', 'transgender', 'trans-gender'])) {
+                        if (in_array($civis->GENDER, $acceptedPhraseList)) {
                             if ($this->Cives->save($civis)) {
                                 $isSuccessful = true;
-                                $this->redirect(['action' => 'success', '?' => ['id' => $civis->CIVISID, 'email' => $civis->EMAIL, 'dob' => $civis->DOB, 'passwordhash' => $civis->PASSWORDHASH]]);
+                                $this->redirect(['action' => 'success', '?' => ['id' => $civis->CIVISID,
+                                'email' => $civis->EMAIL,
+                                'dob' => $civis->DOB,
+                                'passwordhash' => $civis->PASSWORDHASH]]);
                             } else {
                                 $mailer = new Mailer('default');
                                 $mailer->setTo('senatores@imperivm-romanvm.com')
                                     ->addTo('censores@imperivm-romanvm.com')
                                     ->setBcc($civis->EMAIL)
-                                    ->deliver("Miscellaneous problems/Undefined problem. Details:\n" . $civis->__toString());
+                                    ->deliver("Miscellaneous problems/Undefined problem. Details:\n" .
+                                    $civis->__toString());
                                 $isSuccessful = true;
                                 $this->set(compact('isSuccessful'));
                             }
@@ -207,7 +225,8 @@ class CivesController extends AppController
                             $mailer->setTo('senatores@imperivm-romanvm.com')
                                 ->addTo('censores@imperivm-romanvm.com')
                                 ->setBcc($civis->EMAIL)
-                                ->deliver("Gender undefined in program, check for errors. Details:\n" . $civis->__toString());
+                                ->deliver("Gender undefined in program, check for errors. Details:\n" .
+                                $civis->__toString());
                             $isSuccessful = true;
                             $this->set(compact('isSuccessful'));
                         }
@@ -217,7 +236,8 @@ class CivesController extends AppController
                             ->addTo('censores@imperivm-romanvm.com')
                             ->setBcc($civis->EMAIL)
                             ->setSubject('Becoming an Imperivm Romanvm Citizen')
-                            ->deliver("Under 15, check with parental permission required. Details:\n" . $civis->__toString());
+                            ->deliver("Under 15, check with parental permission required. Details:\n" .
+                            $civis->__toString());
 
                         $isSuccessful = true;
                         $this->set(compact('isSuccessful'));
@@ -254,9 +274,12 @@ class CivesController extends AppController
             ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
             ->deliver("Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n" .
                 'CIVISID: ' . $civis->CIVISID .
-                "\nPraenomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
-                "\nNomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
-                "\nCognomen: " . ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
+                "\nPraenomen: " .
+                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
+                "\nNomen: " .
+                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
+                "\nCognomen: " .
+                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
                 "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
                 "\nGender: " . $civis->GENDER .
                 "\nEmail: " . $civis->EMAIL .

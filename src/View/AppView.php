@@ -47,7 +47,12 @@ class AppView extends View
             $locator = $this->getTableLocator();
             $Cives = $locator->get('Cives');
             try {
-                $civis = $Cives->findByIdAndEmailAndPassword($cookies->get('ID')->getValue(), $cookies->get('EMAIL')->getValue(), $cookies->get('abxyzh')->getValue())->firstOrFail();
+                $civis = $Cives->findByIdAndEmailAndPassword(
+                    $cookies->get('ID')->getValue(),
+                    $cookies->get('EMAIL')->getValue(),
+                    $cookies->get('abxyzh')->getValue()
+                )
+                ->firstOrFail();
                 if (!$civis->getErrors()) {
                     $this->set('isLoggedIn', true);
                     $this->set('loggedInCivis', $civis);
