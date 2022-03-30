@@ -74,8 +74,6 @@ jobs:
     - name: Run PHP CodeSniffer
       run: composer cs-check
 
-  
-      run: vendor/bin/phpstan
 ---
 name: Static Analysis
 on:
@@ -109,3 +107,4 @@ jobs:
       run: composer require --dev phpstan/phpstan:^1.0.0
 
     - name: Run phpstan
+      run: vendor/bin/phpstan
