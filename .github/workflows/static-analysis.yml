@@ -1,0 +1,33 @@
+﻿name: Static Analysis
+on:
+  push:
+    branches:
+      - 'feature/*'
+      - 'update/*'
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  static-analysis:
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.0', '8.1']
+    name: Static Analysis - PHP ${{ matrix.php-version }}
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl
+        coverage: none
+
+    - name: Composer install
+      run: composer require --dev phpstan/phpstan:^1.0.0
+
+    - name: Run phpstan
+      run: vendor/bin/phpstan
