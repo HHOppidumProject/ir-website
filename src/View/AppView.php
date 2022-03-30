@@ -43,7 +43,13 @@ class AppView extends View
     public function initialize(): void
     {
         $cookies = $this->request->getCookieCollection();
-        if ($cookies->has('ID') && $cookies->has('abxyzh') && $cookies->has('EMAIL')) {
+        if (
+            ($cookies->has('ID') && $cookies->has('abxyzh') && $cookies->has('EMAIL')) &&
+            (is_string($cookies->get('ID')->getValue()) &&
+                is_string($cookies->get('EMAIL')->getValue()) &&
+                is_string($cookies->get('abxyzh')->getValue())
+            )
+        ) {
             $locator = $this->getTableLocator();
             $Cives = $locator->get('Cives');
             try {
@@ -52,15 +58,17 @@ class AppView extends View
                     $cookies->get('EMAIL')->getValue(),
                     $cookies->get('abxyzh')->getValue()
                 )
-                ->firstOrFail();
-                if (!$civis->getErrors()) {
-                    $this->set('isLoggedIn', true);
-                    $this->set('loggedInCivis', $civis);
-                } else {
-                    $this->set('isLoggedIn', false);
-                    $this->set('loggedInCivis', null);
+                    ->firstOrFail();
+                if (!is_array($civis)) {
+                    if (!$civis->getErrors()) {
+                        $this->set('isLoggedIn', true);
+                        $this->set('loggedInCivis', $civis);
+                    } else {
+                        $this->set('isLoggedIn', false);
+                        $this->set('loggedInCivis', null);
+                    }
                 }
-            } catch (mixed | RecordNotFoundException $e) {
+            } catch (RecordNotFoundException $e) {
                 $this->set('isLoggedIn', false);
                 $this->set('loggedInCivis', null);
             }

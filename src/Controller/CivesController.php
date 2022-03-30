@@ -111,47 +111,50 @@ class CivesController extends AppController
         if ($this->request->is(['post', 'put'])) {
             if (!empty($this->request->getData())) {
                 $data = $this->request->getParsedBody();
-                try {
-                    $prev = '';
-                    foreach (str_split($data['PASSWORDHASH']) as $char) {
-                        $prev = hash('sha256', $prev . $char);
+                if (is_array($data)) {
+                    try {
+                        $prev = '';
+                        foreach (str_split($data['PASSWORDHASH']) as $char) {
+                            $prev = hash('sha256', $prev . $char);
+                        }
+                        $civis = $this->Cives->findByEmailAndPassword(strtolower($data['EMAIL']), $prev)->firstOrFail();
+                        if (!is_array($civis) && !$civis->getErrors()) {
+                            /** @var \App\Model\Entity\Cives $civis*/
+                            //TODO Implement remember me, css stopping it at the mo.
+                            $this->response = $this->response->withCookieCollection(new CookieCollection([
+                                new Cookie(
+                                    'ID',
+                                    $civis->CIVISID,
+                                    new DateTime('+1 day'),
+                                    '/',
+                                    null,
+                                    false,
+                                    false
+                                ),
+                                new Cookie(
+                                    'abxyzh',
+                                    $civis->PASSWORDHASH,
+                                    new DateTime('+1 day'),
+                                    '/',
+                                    null,
+                                    false,
+                                    false
+                                ),
+                                new Cookie(
+                                    'EMAIL',
+                                    $civis->EMAIL,
+                                    new DateTime('+1 day'),
+                                    '/',
+                                    null,
+                                    false,
+                                    false
+                                ),
+                            ]));
+                            $this->redirect(['action' => 'index']);
+                        }
+                    } catch (RecordNotFoundException $e) {
+                        $this->set('notFound', true);
                     }
-                    $civis = $this->Cives->findByEmailAndPassword(strtolower($data['EMAIL']), $prev)->firstOrFail();
-                    if (!$civis->getErrors()) {
-                        //TODO Implement remember me, css stopping it at the mo.
-                        $this->response = $this->response->withCookieCollection(new CookieCollection([
-                            new Cookie(
-                                'ID',
-                                $civis->CIVISID,
-                                new DateTime('+1 day'),
-                                '/',
-                                null,
-                                false,
-                                false
-                            ),
-                            new Cookie(
-                                'abxyzh',
-                                $civis->PASSWORDHASH,
-                                new DateTime('+1 day'),
-                                '/',
-                                null,
-                                false,
-                                false
-                            ),
-                            new Cookie(
-                                'EMAIL',
-                                $civis->EMAIL,
-                                new DateTime('+1 day'),
-                                '/',
-                                null,
-                                false,
-                                false
-                            ),
-                        ]));
-                        $this->redirect(['action' => 'index']);
-                    }
-                } catch (RecordNotFoundException $e) {
-                    $this->set('notFound', true);
                 }
             }
         }
@@ -282,35 +285,48 @@ class CivesController extends AppController
                     'Provincia',
                 ],
             ]])->firstOrFail();
-            $mailer = new Mailer('default');
-            $mailer->setTo($civis->EMAIL)
-                ->setBcc('senatores@imperivm-romanvm.com')
-                ->addBcc('censores@imperivm-romanvm.com')
-                ->addBcc('consules@imperivm-romanvm.com')
-                ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
-                ->deliver("Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n" .
-                    'CIVISID: ' . $civis->CIVISID .
-                    "\nPraenomen: " .
-                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
-                    "\nNomen: " .
-                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
-                    "\nCognomen: " .
-                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
-                    "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
-                    "\nGender: " . $civis->GENDER .
-                    "\nEmail: " . $civis->EMAIL .
-                    "\nDate of Birth: " . $civis->DOB .
-                    "\nForename: " . $civis->cives_priv->FORENAME .
-                    "\nSurname: " . $civis->cives_priv->SURNAME .
-                    "\nAddress Line 1: " . $civis->cives_priv->ADDRESS .
-                    "\nCity / Town: " . $civis->cives_priv->CITY .
-                    "\nPhone Number: " . $civis->cives_priv->PHONE_NUMBER .
-                    "\nPostcode / ZIP: " . $civis->cives_priv->POSTCODE_ZIP .
-                    "\nOccupation / Job: " . $civis->cives_priv->OCCUPATION .
-                    "\nState / County: " . $civis->cives_priv->state_to_provincium->STATENAME .
-                    "\nProvince: " . $civis->cives_priv->state_to_provincium->provincium->PROVINCENAME .
-                    "\nIf there is any problems please contact : censores@imperivm-romanvm.com");
-            $this->set(compact('civis'));
+            if (!is_array($civis)) {
+                /** @var \App\Model\Entity\Cives $civis*/
+                if (
+                    !$civis->getErrors() &&
+                    $civis->cives_priv !== null &&
+                    $civis->cives_priv->state_to_provincium->provincium != null
+                ) {
+                    $mailer = new Mailer('default');
+                    $mailer->setTo($civis->EMAIL)
+                        ->setBcc('senatores@imperivm-romanvm.com')
+                        ->addBcc('censores@imperivm-romanvm.com')
+                        ->addBcc('consules@imperivm-romanvm.com')
+                        ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
+                        ->deliver(
+                            "Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n"
+                            . 'CIVISID: ' . $civis->CIVISID .
+                            "\nPraenomen: " .
+                            ($civis->PREFFEREDWORDGENDER === 0 ? h($civis
+                                ->praenomina->MALE) : h($civis->praenomina->FEMALE))
+                            . "\nNomen: " .
+                            ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
+                            "\nCognomen: " .
+                            ($civis->PREFFEREDWORDGENDER === 0 ? h($civis
+                                ->cognomina->MALE) : h($civis->cognomina->FEMALE))
+                            . "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
+                            "\nGender: " . $civis->GENDER .
+                            "\nEmail: " . $civis->EMAIL .
+                            "\nDate of Birth: " . $civis->DOB .
+                            "\nForename: " . $civis->cives_priv->FORENAME .
+                            "\nSurname: " . $civis->cives_priv->SURNAME .
+                            "\nAddress Line 1: " . $civis->cives_priv->ADDRESS .
+                            "\nCity / Town: " . $civis->cives_priv->CITY .
+                            "\nPhone Number: " . $civis->cives_priv->PHONE_NUMBER .
+                            "\nPostcode / ZIP: " . $civis->cives_priv->POSTCODE_ZIP .
+                            "\nOccupation / Job: " . $civis->cives_priv->OCCUPATION .
+                            "\nState / County: " . $civis->cives_priv->state_to_provincium->STATENAME .
+                            "\nProvince: " . $civis->cives_priv->state_to_provincium->provincium->PROVINCENAME .
+                            "\nIf there is any problems please contact : censores@imperivm-romanvm.com"
+                        );
+                    $this->set(compact('civis'));
+                }
+            }
         }
     }
 
