@@ -74,6 +74,19 @@ jobs:
     - name: Run PHP CodeSniffer
       run: composer cs-check
 
+  
+      run: vendor/bin/phpstan
+---
+name: Static Analysis
+on:
+  push:
+    branches:
+      - 'feature/*'
+      - 'update/*'
+  pull_request:
+    branches:
+      - '*'
+jobs:
   static-analysis:
     strategy:
       fail-fast: false
@@ -96,4 +109,3 @@ jobs:
       run: composer require --dev phpstan/phpstan:^1.0.0
 
     - name: Run phpstan
-      run: vendor/bin/phpstan
