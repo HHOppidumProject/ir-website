@@ -11,9 +11,27 @@ use DateTime;
 
 class CivesController extends AppController
 {
+    /**
+     * How many items should be listed per pagination
+     */
     public $paginate = [
         'limit' => 25,
     ];
+
+    /**
+     * Initialization hook method.
+     *
+     * Use this method to add common initialization code like loading components.
+     *
+     * e.g. `$this->loadComponent('FormProtection');`
+     *
+     * @return void
+     */
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->cives = $this->getTableLocator()->get('Cives');
+    }
 
     /**
      * Displays Cives Index Page with pagination
