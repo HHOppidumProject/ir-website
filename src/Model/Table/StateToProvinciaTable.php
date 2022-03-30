@@ -6,6 +6,23 @@ namespace App\Model\Table;
 
 use Cake\ORM\Table;
 
+/**
+ * @property \App\Model\Table\CountriesTable&\Cake\ORM\Association\BelongsTo $Countries
+ * @property \App\Model\Table\ProvinciaTable&\Cake\ORM\Association\BelongsTo $Provincia
+ * @method \App\Model\Entity\StateToProvincium newEmptyEntity()
+ * @method \App\Model\Entity\StateToProvincium newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\StateToProvincium[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\StateToProvincium get($primaryKey, $options = [])
+ * @method \App\Model\Entity\StateToProvincium findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\StateToProvincium patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\StateToProvincium[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\StateToProvincium|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\StateToProvincium saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\StateToProvincium[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\StateToProvincium[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\StateToProvincium[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\StateToProvincium[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
 class StateToProvinciaTable extends Table
 {
     /**

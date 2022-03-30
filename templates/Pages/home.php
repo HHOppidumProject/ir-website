@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var \App\View\AppView $this
+ */
 $this->assign('title', 'Home')
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)

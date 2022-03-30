@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate $DATESTART
  * @property \Cake\I18n\FrozenDate $DATEEND
  *
- * @property \App\Model\Entity\Cife $cife
+ * @property \App\Model\Entity\Cives $cives
  * @property \App\Model\Entity\CivilService $civil_service
  */
 class CivilServiceRecord extends Entity
@@ -26,7 +26,7 @@ class CivilServiceRecord extends Entity
      * be mass assigned. For security purposes, it is advised to set '*' to false
      * (or remove it), and explicitly make individual fields accessible as needed.
      *
-     * @var array
+     * @var array<bool>
      */
     protected $_accessible = [
         'CIVIS' => true,
@@ -36,4 +36,7 @@ class CivilServiceRecord extends Entity
         'cives' => true,
         'civil_service' => true,
     ];
+
+    public const FIELD_CIVES = 'cives';
+    public const FIELD_CIVIL_SERVICE = 'civil_service';
 }

@@ -1,4 +1,8 @@
-<?php 
+<?php /**
+ * @var \App\View\AppView $this
+ * @var mixed $cives
+ */
+
 $this->assign('title', 'Album Civium'); 
 echo $this->Paginator->meta();
 ?>

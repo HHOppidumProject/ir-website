@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 <?php $this->assign('title', 'Religion - Dii Consentes'); ?>
 <section id="highlights" class="wrapper style3">
 	<h1 class="title is-1">Dii Consentes</h1>

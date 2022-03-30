@@ -59,7 +59,7 @@ class CivesController extends AppController
      * @param string $id -- id (primary key) of civis
      * @return void
      */
-    public function view($id = null)
+    public function view(string $id = '')
     {
         $this->viewBuilder()->setLayout('default');
         $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
@@ -68,10 +68,10 @@ class CivesController extends AppController
             ],
         ]])->firstOrFail();
         $serviceRecord = $this->getTableLocator()
-                            ->get('CivilServiceRecord')
-                            ->findByCivisId($id)
-                            ->contain(['CivilServices'])
-                            ->order(['DATESTART' => 'DESC'])->all();
+            ->get('CivilServiceRecord');
+        // ->findByCivisId($id)
+        // ->contain(['CivilServices'])
+        // ->order(['DATESTART' => 'DESC'])->all();
         $this->set(compact('serviceRecord'));
         $this->set(compact('civis'));
     }
@@ -84,7 +84,7 @@ class CivesController extends AppController
      * @param string $id -- id (primary key) of civis
      * @return void
      */
-    public function edit($id = null)
+    public function edit(string $id = ''): void
     {
         $this->viewBuilder()->setLayout('default');
         $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
@@ -202,30 +202,34 @@ class CivesController extends AppController
                     $civis->CIVISID = hash('sha256', substr(str_shuffle($randomString), 1, 256));
 
                     $civis->EMAIL = strtolower($civis->EMAIL);
-                    $acceptedPhraseList = ['male',
-                    'female',
-                    'agender',
-                    'gender fluid',
-                    'gender-fluid',
-                    'genderfluid',
-                    'intersex',
-                    'transgender',
-                    'trans-gender'];
+                    $acceptedPhraseList = [
+                        'male',
+                        'female',
+                        'agender',
+                        'gender fluid',
+                        'gender-fluid',
+                        'genderfluid',
+                        'intersex',
+                        'transgender',
+                        'trans-gender',
+                    ];
                     if (!$civis->DOB->wasWithinLast('15 years')) {
                         if (in_array($civis->GENDER, $acceptedPhraseList)) {
                             if ($this->Cives->save($civis)) {
                                 $isSuccessful = true;
-                                $this->redirect(['action' => 'success', '?' => ['id' => $civis->CIVISID,
-                                'email' => $civis->EMAIL,
-                                'dob' => $civis->DOB,
-                                'passwordhash' => $civis->PASSWORDHASH]]);
+                                $this->redirect(['action' => 'success', '?' => [
+                                    'id' => $civis->CIVISID,
+                                    'email' => $civis->EMAIL,
+                                    'dob' => $civis->DOB,
+                                    'passwordhash' => $civis->PASSWORDHASH,
+                                ]]);
                             } else {
                                 $mailer = new Mailer('default');
                                 $mailer->setTo('senatores@imperivm-romanvm.com')
                                     ->addTo('censores@imperivm-romanvm.com')
                                     ->setBcc($civis->EMAIL)
                                     ->deliver("Miscellaneous problems/Undefined problem. Details:\n" .
-                                    $civis->__toString());
+                                        $civis->__toString());
                                 $isSuccessful = true;
                                 $this->set(compact('isSuccessful'));
                             }
@@ -235,7 +239,7 @@ class CivesController extends AppController
                                 ->addTo('censores@imperivm-romanvm.com')
                                 ->setBcc($civis->EMAIL)
                                 ->deliver("Gender undefined in program, check for errors. Details:\n" .
-                                $civis->__toString());
+                                    $civis->__toString());
                             $isSuccessful = true;
                             $this->set(compact('isSuccessful'));
                         }
@@ -246,7 +250,7 @@ class CivesController extends AppController
                             ->setBcc($civis->EMAIL)
                             ->setSubject('Becoming an Imperivm Romanvm Citizen')
                             ->deliver("Under 15, check with parental permission required. Details:\n" .
-                            $civis->__toString());
+                                $civis->__toString());
 
                         $isSuccessful = true;
                         $this->set(compact('isSuccessful'));
@@ -266,44 +270,48 @@ class CivesController extends AppController
         $id = $this->request->getQuery('id');
         $email = $this->request->getQuery('email');
         $PASSWORDHASH = $this->request->getQuery('passwordhash');
-        if (empty($id) || empty($email) || empty($PASSWORDHASH)) {
+        if (
+            (empty($id) || empty($email) || empty($PASSWORDHASH)) ||
+            (!is_string($id) || !is_string($email) || !is_string($PASSWORDHASH))
+        ) {
             $this->redirect(['action' => 'login']);
+        } else {
+            $this->viewBuilder()->setLayout('default');
+            $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
+                'StateToProvincia' => [
+                    'Provincia',
+                ],
+            ]])->firstOrFail();
+            $mailer = new Mailer('default');
+            $mailer->setTo($civis->EMAIL)
+                ->setBcc('senatores@imperivm-romanvm.com')
+                ->addBcc('censores@imperivm-romanvm.com')
+                ->addBcc('consules@imperivm-romanvm.com')
+                ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
+                ->deliver("Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n" .
+                    'CIVISID: ' . $civis->CIVISID .
+                    "\nPraenomen: " .
+                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
+                    "\nNomen: " .
+                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
+                    "\nCognomen: " .
+                    ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
+                    "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
+                    "\nGender: " . $civis->GENDER .
+                    "\nEmail: " . $civis->EMAIL .
+                    "\nDate of Birth: " . $civis->DOB .
+                    "\nForename: " . $civis->cives_priv->FORENAME .
+                    "\nSurname: " . $civis->cives_priv->SURNAME .
+                    "\nAddress Line 1: " . $civis->cives_priv->ADDRESS .
+                    "\nCity / Town: " . $civis->cives_priv->CITY .
+                    "\nPhone Number: " . $civis->cives_priv->PHONE_NUMBER .
+                    "\nPostcode / ZIP: " . $civis->cives_priv->POSTCODE_ZIP .
+                    "\nOccupation / Job: " . $civis->cives_priv->OCCUPATION .
+                    "\nState / County: " . $civis->cives_priv->state_to_provincium->STATENAME .
+                    "\nProvince: " . $civis->cives_priv->state_to_provincium->provincium->PROVINCENAME .
+                    "\nIf there is any problems please contact : censores@imperivm-romanvm.com");
+            $this->set(compact('civis'));
         }
-        $this->viewBuilder()->setLayout('default');
-        $civis = $this->Cives->findById($id)->contain(['Praenomina', 'Nomina', 'Cognomina', 'CivesPriv' => [
-            'StateToProvincia' => [
-                'Provincia',
-            ],
-        ]])->firstOrFail();
-        $mailer = new Mailer('default');
-        $mailer->setTo($civis->EMAIL)
-            ->setBcc('senatores@imperivm-romanvm.com')
-            ->addBcc('censores@imperivm-romanvm.com')
-            ->addBcc('consules@imperivm-romanvm.com')
-            ->setSubject('Welcome to the Imperivm Romanvm - Your Citizenship details')
-            ->deliver("Congratulations on becoming a citizen of the Imperivm Romanvm! Here are your details:\n" .
-                'CIVISID: ' . $civis->CIVISID .
-                "\nPraenomen: " .
-                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->praenomina->MALE) : h($civis->praenomina->FEMALE)) .
-                "\nNomen: " .
-                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->nomina->NOMEN) : h($civis->nomina->GENS)) .
-                "\nCognomen: " .
-                ($civis->PREFFEREDWORDGENDER === 0 ? h($civis->cognomina->MALE) : h($civis->cognomina->FEMALE)) .
-                "\nPreferred Word Gender: " . ($civis->PREFFEREDWORDGENDER ? 'Female' : 'Male') .
-                "\nGender: " . $civis->GENDER .
-                "\nEmail: " . $civis->EMAIL .
-                "\nDate of Birth: " . $civis->DOB .
-                "\nForename: " . $civis->cives_priv->FORENAME .
-                "\nSurname: " . $civis->cives_priv->SURNAME .
-                "\nAddress Line 1: " . $civis->cives_priv->ADDRESS .
-                "\nCity / Town: " . $civis->cives_priv->CITY .
-                "\nPhone Number: " . $civis->cives_priv->PHONE_NUMBER .
-                "\nPostcode / ZIP: " . $civis->cives_priv->POSTCODE_ZIP .
-                "\nOccupation / Job: " . $civis->cives_priv->OCCUPATION .
-                "\nState / County: " . $civis->cives_priv->state_to_provincium->STATENAME .
-                "\nProvince: " . $civis->cives_priv->state_to_provincium->provincium->PROVINCENAME .
-                "\nIf there is any problems please contact : censores@imperivm-romanvm.com");
-        $this->set(compact('civis'));
     }
 
     /**

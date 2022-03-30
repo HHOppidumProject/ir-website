@@ -7,6 +7,22 @@ namespace App\Model\Table;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
+/**
+ * @property \App\Model\Table\StateToProvinciaTable&\Cake\ORM\Association\BelongsTo $StateToProvincia
+ * @method \App\Model\Entity\CivesPriv newEmptyEntity()
+ * @method \App\Model\Entity\CivesPriv newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\CivesPriv[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\CivesPriv get($primaryKey, $options = [])
+ * @method \App\Model\Entity\CivesPriv findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\CivesPriv patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\CivesPriv[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\CivesPriv|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CivesPriv saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CivesPriv[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivesPriv[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivesPriv[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivesPriv[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
 class CivesPrivTable extends Table
 {
     /**

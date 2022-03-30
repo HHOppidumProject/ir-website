@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 <?php $this->assign('title', 'Religion - Christianity'); ?>
 <section id="highlights" class="wrapper style3">
     <div class="title">Christ</div>

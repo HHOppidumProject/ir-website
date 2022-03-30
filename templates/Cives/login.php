@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var mixed $civis
+ * @var mixed $notFound
+ */
+?>
 <?php $this->assign('title', 'Login'); ?>
 <section id="highlights" class="wrapper style3">
     <h2 class="title is-2">Login</h2>

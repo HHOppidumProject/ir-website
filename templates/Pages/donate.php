@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 <?php $this->assign('title', 'Donate'); ?>
 
 <section id="highlights" class="wrapper style3 has-text-centered">

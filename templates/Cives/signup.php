@@ -1,3 +1,14 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var mixed $civis
+ * @var mixed $cognomina
+ * @var mixed $isSuccessful
+ * @var mixed $nomina
+ * @var mixed $praenomina
+ * @var \App\Model\Entity\Country[]|\Cake\Collection\CollectionInterface $countries
+ */
+?>
 <?php $this->assign('title', 'Join the Imperivm'); ?>
 <section id="highlights" class="wrapper style3">
     <?php if (!$isSuccessful) { ?>

@@ -130,6 +130,7 @@ class Application extends BaseApplication
     {
         $this->addOptionalPlugin('Cake/Repl');
         $this->addOptionalPlugin('Bake');
+        $this->addOptionalPlugin('IdeHelper');
 
         $this->addPlugin('Migrations');
 

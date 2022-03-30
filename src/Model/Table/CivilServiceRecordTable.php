@@ -7,6 +7,23 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 
+/**
+ * @property \App\Model\Table\CivesTable&\Cake\ORM\Association\BelongsTo $Cives
+ * @property \App\Model\Table\CivilServicesTable&\Cake\ORM\Association\BelongsTo $CivilServices
+ * @method \App\Model\Entity\CivilServiceRecord newEmptyEntity()
+ * @method \App\Model\Entity\CivilServiceRecord newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord get($primaryKey, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CivilServiceRecord[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
 class CivilServiceRecordTable extends Table
 {
     /**

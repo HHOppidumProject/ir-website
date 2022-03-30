@@ -6,6 +6,10 @@ namespace App\Model\Table;
 
 use Cake\ORM\Table;
 
+/**
+ * @property \App\Model\Table\CivesTable&\Cake\ORM\Association\BelongsTo $Cives
+ * @property \App\Model\Table\CognominaTable&\Cake\ORM\Association\HasMany $Cognomina
+ */
 class CivesAgnominaTable extends Table
 {
     /**

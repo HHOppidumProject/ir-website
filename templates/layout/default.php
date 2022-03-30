@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var mixed $isLoggedIn
+ * @var object $loggedInCivis
+ */
+?>
 <!DOCTYPE html>
 <html lang="en" style="max-width:100vw !important; overflow-x:hidden;">
 

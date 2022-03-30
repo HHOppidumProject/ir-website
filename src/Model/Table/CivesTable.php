@@ -8,6 +8,27 @@ use Cake\ORM\Query;
 use Cake\Validation\Validator;
 use CakeDC\Users\Model\Table\UsersTable;
 
+/**
+ * @property \App\Model\Table\CivesPrivTable&\Cake\ORM\Association\HasOne $CivesPriv
+ * @property \App\Model\Table\CognominaTable&\Cake\ORM\Association\BelongsTo $Cognomina
+ * @property \App\Model\Table\NominaTable&\Cake\ORM\Association\BelongsTo $Nomina
+ * @property \App\Model\Table\PraenominaTable&\Cake\ORM\Association\BelongsTo $Praenomina
+ * @property \App\Model\Table\CivilServicesTable&\Cake\ORM\Association\BelongsToMany $CivilServices
+ * @property \App\Model\Table\CivilServiceRecordTable&\Cake\ORM\Association\HasMany $CivilServiceRecord
+ * @method \App\Model\Entity\Cives newEmptyEntity()
+ * @method \App\Model\Entity\Cives newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Cives[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Cives get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Cives findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Cives patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Cives[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Cives|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Cives saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Cives[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cives[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cives[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cives[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
 class CivesTable extends UsersTable
 {
     /**

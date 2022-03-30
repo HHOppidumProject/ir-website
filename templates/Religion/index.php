@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 <section id="highlights" class="wrapper style3">
     <h2 class="title is-3">Religion in The Imperivm Romanvm</h2>
     <div class="hero has-text-centered">

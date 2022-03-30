@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
 <?php $this->assign('title', 'Sign-up FAQ'); ?>
 <section id="highlights" class="wrapper style3">
     <h1 class="title">FAQ on becoming a citizen</h1>

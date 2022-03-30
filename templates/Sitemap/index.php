@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var mixed $Cives
+ * @var string $url
+ */
+?>
 <url>
     <loc><?= $url; ?></loc>
     <changefreq>weekly</changefreq>
