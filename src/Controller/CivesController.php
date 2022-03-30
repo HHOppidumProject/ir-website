@@ -9,6 +9,12 @@ use Cake\Http\Cookie\CookieCollection;
 use Cake\Mailer\Mailer;
 use DateTime;
 
+/**
+ * Cives Controller
+ *
+ * @property \App\Model\Table\CivesTable $Cives
+ * @method \App\Model\Entity\Cives[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ */
 class CivesController extends AppController
 {
     /**
@@ -17,21 +23,6 @@ class CivesController extends AppController
     public $paginate = [
         'limit' => 25,
     ];
-
-    /**
-     * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading components.
-     *
-     * e.g. `$this->loadComponent('FormProtection');`
-     *
-     * @return void
-     */
-    public function initialize(): void
-    {
-        parent::initialize();
-        $this->cives = $this->getTableLocator()->get('Cives');
-    }
 
     /**
      * Displays Cives Index Page with pagination
