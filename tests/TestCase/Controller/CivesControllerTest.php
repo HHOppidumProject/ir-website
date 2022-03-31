@@ -27,7 +27,7 @@ class CivesControllerTest extends TestCase
         'app.Nomina',
         'app.Praenomina',
         'app.CivilServices',
-        'app.CivesCivilServices',
+        'app.CivilServiceRecord',
     ];
 
     /**

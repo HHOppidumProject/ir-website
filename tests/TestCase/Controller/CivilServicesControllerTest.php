@@ -23,7 +23,7 @@ class CivilServicesControllerTest extends TestCase
     protected $fixtures = [
         'app.CivilServices',
         'app.Cives',
-        'app.CivesCivilServices',
+        'app.CivilServiceRecord',
     ];
 
     /**

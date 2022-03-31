@@ -26,7 +26,7 @@ class CivilServiceRecordFixture extends TestFixture
         $this->records = [
             [
                 'RECORDENTRY' => 1,
-                'CIVIS' => 'Lorem ipsum dolor sit amet',
+                'CIVIS' => '231e1b37-9962-4b1e-86ec-1cf61a2bed84',
                 'SERVICE' => 1,
                 'DATESTART' => '2022-03-18',
                 'DATEEND' => '2022-03-18',

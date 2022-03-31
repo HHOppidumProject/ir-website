@@ -25,7 +25,7 @@ class CivesPrivFixture extends TestFixture
     {
         $this->records = [
             [
-                'CIVIS' => 'Lorem ipsum dolor sit amet',
+                'CIVIS' => '231e1b37-9962-4b1e-86ec-1cf61a2bed84',
                 'FORENAME' => 'Lorem ipsum dolor sit amet',
                 'SURNAME' => 'Lorem ipsum dolor sit amet',
                 'ADDRESS' => 'Lorem ipsum dolor sit amet',
